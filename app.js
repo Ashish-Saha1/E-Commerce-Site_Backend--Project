@@ -2,6 +2,9 @@ const express = require('express');
 require('dotenv').config();   
 const app = express();
 const cookieParser = require('cookie-parser')
+const mongoose = require('mongoose');
+const ejs = require('ejs');
+
 
 
 //Internal import
@@ -16,8 +19,6 @@ const productsRouter = require('./routes/productsRouter');
 
 
 
-
-
 //Use
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -25,13 +26,14 @@ app.use(cookieParser())
 app.use(express.static('public'))
 
 //Set
-app.set('view-engine', 'ejs')
+app.set('view engine', 'ejs')
 
 
 
 
 app.get('/', (req,res)=>{
-    res.send('Welcome to Get method')
+    res.render('index')
+    //res.send('Welcome to Get method')
 })
 
 
