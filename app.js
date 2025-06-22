@@ -4,7 +4,7 @@ const app = express();
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
 const ejs = require('ejs');
-
+// const config = require('config').get('')
 
 
 //Internal import
