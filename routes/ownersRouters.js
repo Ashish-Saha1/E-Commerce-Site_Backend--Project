@@ -3,6 +3,7 @@ const router = express.Router();
 
 
 console.log("Owner Route:",process.env.NODE_ENV);
+console.log("Owner Route2:",process.env.check);
 
 router.get('/', (req,res)=>{
 
@@ -10,12 +11,12 @@ router.get('/', (req,res)=>{
 })
 
 if(process.env.NODE_ENV === 'development'){
-    console.log('Print Development');
+
+    router.get('/create', (req,res)=>{
+    res.send(`Owner Create Successfull`)
+    })
     
 }
-
-
-
 
 
 
