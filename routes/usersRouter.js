@@ -42,32 +42,6 @@ router.post('/register', async (req,res)=>{
 
 
 
-//Login a User
-
-router.post('/register', async (req,res)=>{
-    const {fullname, email, password} = req.body;
-
-    try {
-        if(!fullname || !email || !password){
-            return res.status(403).send('Required field')
-        }
-
-        const hashPassword = await bcrypt.hash(password, 10)
-
-        const user = await UserModel.create({
-            fullname,
-            email,
-            password: hashPassword
-            })
-
-    
-    res.send("User is registered successfully")
-
-    } catch (error) {
-        res.send(error.message)
-    }
-
-})
 
 
 
