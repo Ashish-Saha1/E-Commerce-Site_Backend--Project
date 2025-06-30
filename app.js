@@ -32,7 +32,6 @@ app.set('view engine', 'ejs')
 
 
 app.get('/', (req,res)=>{
-    console.log(process.env.check);
     
     res.render('index')
 
