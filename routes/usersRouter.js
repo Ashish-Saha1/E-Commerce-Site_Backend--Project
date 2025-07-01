@@ -1,6 +1,6 @@
 const express = require('express'); 
 const router = express.Router();
-const UserModel = require('../models/userModel');
+const UserModel = require('../models/userModel') 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -31,7 +31,7 @@ router.post('/register', async (req,res)=>{
     
     const token = jwt.sign({email, id: user._id}, process.env.JWT_SECRET)
                 res.cookie('token', token)
-    res.send(token,"User is registered successfully")
+    res.send("User is registered successfully")
 
     } catch (error) {
         res.send(error.message)
