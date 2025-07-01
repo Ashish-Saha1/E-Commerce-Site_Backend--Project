@@ -1,8 +1,10 @@
 const express = require('express'); 
 const router = express.Router();
-const UserModel = require('../models/userModel') 
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+// const UserModel = require('../models/userModel') 
+// const bcrypt = require('bcrypt');
+
+
+const { registerController,loginController} = require('../controller/userController');
 
 
 
@@ -11,34 +13,14 @@ router.get('/', (req,res)=>{
 })
 
 
-//Create a User
+//Create/Register a User
 
-router.post('/register', async (req,res)=>{
-    const {fullname, email, password} = req.body;
+router.post('/register', registerController)
 
-    try {
-        if(!fullname || !email || !password){
-            return res.status(403).send('Required field')
-        }
 
-        const hashPassword = await bcrypt.hash(password, 10)
 
-        const user = await UserModel.create({
-            fullname,
-            email,
-            password: hashPassword
-            })
-    
-    const token = jwt.sign({email, id: user._id}, process.env.JWT_SECRET)
-                res.cookie('token', token)
-    res.send("User is registered successfully")
-
-    } catch (error) {
-        res.send(error.message)
-    }
-
-})
-
+//Login User
+router.post('/login', loginController)
 
 
 
