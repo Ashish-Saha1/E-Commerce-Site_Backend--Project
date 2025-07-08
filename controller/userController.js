@@ -52,7 +52,7 @@ const loginController = async (req,res)=>{
                 return res.status(403).send('Required field')
             }
 
-
+    
         const user = await UserModel.findOne({email})
 
         if(!user){
@@ -65,6 +65,8 @@ const loginController = async (req,res)=>{
             return res.send(`Email or Password is not correct`)
         }
 
+        const token =  generateToken(user)
+        res.cookie('token', token)
         res.send(`Login Successfully`)
 
     } catch (error) {

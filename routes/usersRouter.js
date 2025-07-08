@@ -1,5 +1,6 @@
 const express = require('express'); 
 const router = express.Router();
+
 // const UserModel = require('../models/userModel') 
 // const bcrypt = require('bcrypt');
 
@@ -21,8 +22,6 @@ router.post('/register', registerController)
 
 //Login User
 router.post('/login', loginController)
-
-
 
 
 
