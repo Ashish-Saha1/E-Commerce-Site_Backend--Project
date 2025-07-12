@@ -1,6 +1,6 @@
 const express = require('express'); 
 const router = express.Router();
-
+const {isLoggedIn} = require('../middlewares/isLoggedIn')
 // const UserModel = require('../models/userModel') 
 // const bcrypt = require('bcrypt');
 
@@ -24,7 +24,10 @@ router.post('/register', registerController)
 router.post('/login', loginController)
 
 
-
+router.get('/pro', isLoggedIn, (req,res,next)=>{
+   
+    res.send('Just check isloggedIn')
+})
 
 
 
