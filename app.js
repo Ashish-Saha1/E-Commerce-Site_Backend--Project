@@ -4,6 +4,10 @@ const app = express();
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
 const ejs = require('ejs');
+const expressLayouts = require('express-ejs-layouts');
+const session = require('express-session');
+const flash = require('connect-flash');
+
 // const config = require('config').get('')
 
 
@@ -25,8 +29,22 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser())
 app.use(express.static('public'))
 
+app.use(session({
+    secret: process.env.EXPRESS_SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    
+}))
+
+app.use(flash())
+
+//Layouts
+app.set('view engine', 'ejs');
+app.use(expressLayouts)
+app.set('layout', 'layouts/main.ejs')
+
 //Set
-app.set('view engine', 'ejs')
+
 
 
 

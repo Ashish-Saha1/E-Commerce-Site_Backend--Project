@@ -1,11 +1,290 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is an EJS Layout for Home page</h1>
-</body>
-</html>
+
+
+
+<!-- Header Starts (Bannar) -->
+
+ <header>
+
+    <section class="bannar">
+        <div class="row-bannar">
+            <!-- <div class="discount">
+                <marquee behavior="" direction="">Enjoy Up To 70% Discount with Shopping Bag ...</marquee>
+            </div> -->
+
+            <div class="features">
+                <article class="feature">
+                    <i class="fa-solid fa-truck-fast fa-3x"></i>
+                    <h3>Shipping Within 3 Days</h3>
+                </article>
+
+                <article class="feature">
+                    <i class="fa-solid fa-headset fa-3x"></i>
+                    <h3>Support 24/7</h3>
+                </article>
+
+                <article class="feature">
+                    <i class="fa-solid fa-credit-card fa-3x"></i>
+                    <h3>Safe Payment</h3>
+                </article>
+            </div>
+
+
+
+        </div>
+    </section>
+
+ </header>
+
+
+                    <!-- Header Ends (Bannar) -->
+
+
+                    <!-- Main Starts  -->
+
+  <main>
+    <div class="main-container">
+        <section class="sort-search">
+            <div class="sort-product">
+                <label for="sort">Sort By: </label>
+                <select name="sort" id="sort">
+                    <option value="sold">Most Sold First</option>
+                    <option value="rating">Most Rated</option>
+                    <option value="low price">Most Cheapest</option>
+                    <option value="arrival">New Arrival</option>
+                    <option value="discount">Top Discount</option>
+                </select>
+            </div>
+
+            <div class="search-product">
+                <input type="search" name="search-producct" id="" placeholder="Search Product">
+                <a href=""><i class="fa-solid fa-search"></i></a>
+            </div>
+
+        </section>
+
+        <section class="filter-sidebar">
+                <div class="category">
+                    <h1>Categories</h1>
+                <ul>
+                    <li><label for="phone"><input type="checkbox" name="phone" id=""> Phone</label></li>
+                    <li><label for="tablets"><input type="checkbox" name="tablets" id=""> Tablet</label></li>
+                    <li><label for="telivisions"><input type="checkbox" name="telivisions" id=""> Telivision</label></li>
+                    <li><label for="conputer"><input type="checkbox" name="conputer" id=""> Computer</label></li>
+                    <li><label for="headphones"><input type="checkbox" name="headphones" id=""> Headphone</label></li>
+                </ul>
+                </div>
+
+                <div class="category">
+                    <h1>Price Range</h1>
+                <ul>
+                    <li><label for="price-1"><input type="radio" name="price" id="" value="[0,20]"> $0-$20</label></li>
+                    <li><label for="price-2"><input type="radio" name="price" id="" value="[21,50]"> $21-$50</label></li>
+                    <li><label for="price-3"><input type="radio" name="price" id="" value="[51-100]"> $51-$100</label></li>
+                    <li><label for="price-4"><input type="radio" name="price" id="" value="[101-500]">  $101-$500</label></li>
+                    <li><label for="price-5"><input type="radio" name="price" id="" value="[501+]"> $501+</label></li>
+                </ul>
+                </div>
+
+                <div class="category">
+                    <h1>Shipping Options</h1>
+                <ul>
+                    <li><label for="free"><input type="radio" name="shipping" id="" value="free"> Free</label></li>
+                    <li><label for="paid"><input type="radio" name="shipping" id="" value="paid"> Paid</label></li>
+                </ul>
+                </div>
+       
+        </section>
+
+        <section class="products">
+                <div class="product">
+                    <article class="product-stock">
+                        <span>5 In Stock</span>
+                        <hr>
+                        <span>3 Sold</span>
+                    </article>
+
+                    <div class="product-image">
+                        <img src="images/product-shoe.jpg" alt="Headphone image">
+                    </div>
+
+                    <div class="product-details">
+                        <h3>Bata Scollar Shoes</h3>
+
+                        <span class="dot-green"></span>
+                        <span class="dot-black"></span>
+                        <span class="dot-red"></span>
+                        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="product.html">Learn More</a> </p>
+
+                        <h4>$225.99</h4>
+
+                        <h5>Rating: 4.5/5</h5>
+
+                        <button class="btn">Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <article class="product-stock">
+                        <span>5 In Stock</span>
+                        <hr>
+                        <span>3 Sold</span>
+                    </article>
+
+                    <div class="product-image">
+                        <img src="images/product-drone.jpg" alt="Drone image">
+                    </div>
+
+                    <div class="product-details">
+                        <h3>Drone</h3>
+
+                        <span class="dot-green"></span>
+                        <span class="dot-black"></span>
+                        <span class="dot-red"></span>
+                        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
+
+                        <h4>$225.99</h4>
+
+                        <h5>Rating: 4.5/5</h5>
+
+                        <button class="btn">Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <article class="product-stock">
+                        <span>5 In Stock</span>
+                        <hr>
+                        <span>3 Sold</span>
+                    </article>
+
+                    <div class="product-image">
+                        <img src="images/product-laptop.jpg" alt="Headphone image">
+                    </div>
+
+                    <div class="product-details">
+                        <h3>Laptop</h3>
+
+                        <span class="dot-green"></span>
+                        <span class="dot-black"></span>
+                        <span class="dot-red"></span>
+                        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
+
+                        <h4>$225.99</h4>
+
+                        <h5>Rating: 4.5/5</h5>
+
+                        <button class="btn">Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <article class="product-stock">
+                        <span>5 In Stock</span>
+                        <hr>
+                        <span>3 Sold</span>
+                    </article>
+
+                    <div class="product-image">
+                        <img src="images/product-phone.jpg" alt="Headphone image">
+                    </div>
+
+                    <div class="product-details">
+                        <h3>Phone</h3>
+
+                        <span class="dot-green"></span>
+                        <span class="dot-black"></span>
+                        <span class="dot-red"></span>
+                        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
+
+                        <h4>$225.99</h4>
+
+                        <h5>Rating: 4.5/5</h5>
+
+                        <button class="btn">Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <article class="product-stock">
+                        <span>5 In Stock</span>
+                        <hr>
+                        <span>3 Sold</span>
+                    </article>
+
+                    <div class="product-image">
+                        <img src="images/product-sunglass.jpg" alt="Headphone image">
+                    </div>
+
+                    <div class="product-details">
+                        <h3>Sunglass</h3>
+
+                        <span class="dot-green"></span>
+                        <span class="dot-black"></span>
+                        <span class="dot-red"></span>
+                        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
+
+                        <h4>$225.99</h4>
+
+                        <h5>Rating: 4.5/5</h5>
+
+                        <button class="btn">Add To Cart</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <article class="product-stock">
+                        <span>5 In Stock</span>
+                        <hr>
+                        <span>3 Sold</span>
+                    </article>
+
+                    <div class="product-image">
+                        <img src="images/product-watch.jpg" alt="Headphone image">
+                    </div>
+
+                    <div class="product-details">
+                        <h3>Watch</h3>
+
+                        <span class="dot-green"></span>
+                        <span class="dot-black"></span>
+                        <span class="dot-red"></span>
+                        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
+
+                        <h4>$225.99</h4>
+
+                        <h5>Rating: 4.5/5</h5>
+
+                        <button class="btn">Add To Cart</button>
+                    </div>
+                </div>
+           
+        </section>
+
+
+        <section class="pagination">
+            <button class="button-style pagination-btn"><i class="fas fa-less-than"></i></button>
+            <button class="button-style pagination-btn">2</button>
+            <button class="button-style pagination-btn">3</button>
+            <button class="button-style pagination-btn">4</button>
+            <button class="button-style pagination-btn">5</button>
+            <button class="button-style pagination-btn">6</button>
+            <button class="button-style pagination-btn">7</button>
+            <button class="button-style pagination-btn">8</button>
+            <button class="button-style pagination-btn">9</button>
+            <button class="button-style pagination-btn">10</button>
+            <button class="button-style pagination-btn">...</button>
+            <button class="button-style pagination-btn"><i class="fas fa-greater-than"></i></button>
+        </section>
+
+
+    </div>
+  </main>
+
+
+    <!-- Main Ends -->

@@ -1,0 +1,100 @@
+  /* For responsive please consider below template */
+      .col-ds-1 {width: 8.33%;}
+      .col-ds-2 {width: 16.66%;}
+      .col-ds-3 {width: 25%;}
+      .col-ds-4 {width: 33.33%;}
+      .col-ds-5 {width: 41.66%;}
+      .col-ds-6 {width: 50%;}
+      .col-ds-7 {width: 58.33%;}
+      .col-ds-8 {width: 66.66%;}
+      .col-ds-9 {width: 75%;}
+      .col-ds-10 {width: 83.33%;}
+      .col-ds-11 {width: 91.66%;}
+      .col-ds-12 {width: 100%;}
+
+/* For responsive please consider above template */
+
+/* Nav Starts */
+
+.logo img{
+  width: 3.6rem;
+
+ }
+
+
+#manu-bar ul{
+  gap: 25px;
+  font-size: 16px;
+
+}
+
+.cart ul li{
+ font-size: 16px;
+}
+
+
+
+/* Nav Ends */
+
+
+
+/* Main Starts */
+
+.filter-sidebar{
+  grid-column: 1 / span 2;
+ 
+ }
+
+.products{
+  grid-column: 3 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column-gap: 15px;
+  grid-row-gap: 25px;
+  
+} 
+
+.product{
+  margin: 0 1%;
+
+}
+
+
+/* Footer Starts */
+
+footer{
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  gap: 0px;
+  padding: 1% 0;
+}
+
+.newsletter{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0px;
+  flex: 1;
+
+}
+
+.newsletter label{
+  margin-right: 5px;
+}
+
+.newsletter input[type="email"]{
+  width: 40%;
+  padding: 10px;
+
+
+ }
+
+ .newsletter button{
+  padding-top: 8.5px;
+  margin-left: -5px;
+ }
+
+.copyright{
+  flex: 1;
+  text-align: center;
+}

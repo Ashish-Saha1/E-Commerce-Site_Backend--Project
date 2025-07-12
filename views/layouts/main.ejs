@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- Copy from Old project starts -->
+
+    <!-- CSS file link here -->
+     <link rel="stylesheet" href="stylesheets/style.css">
+
+     <!-- CSS file for Tablet link here -->
+     <link rel="stylesheet" href="stylesheets/style-common-tablet.css" media="screen and (min-width:768px)">
+
+    <!-- CSS file for desktop link here -->
+    <link rel="stylesheet" href="stylesheets/style-common-desktop.css" media="screen and (min-width: 992px)">
+
+   
+
+
+    <!-- Font awesome link below  For Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!--Google fonts link   -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Rampart+One&family=Roboto&display=swap" rel="stylesheet">
+
+
+<!-- Copy from Old project Ends -->
+
+
+</head>
+<body>
+    
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+
+    <main>
+        <%- body %>
+    </main>
+
+
+    <!-- Footer -->
+        <%- include('../partials/footer.ejs') %>
+    
+
+</body>
+</html>

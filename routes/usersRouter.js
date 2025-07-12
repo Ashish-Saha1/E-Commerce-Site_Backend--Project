@@ -26,7 +26,7 @@ router.post('/login', loginController)
 
 router.get('/pro', isLoggedIn, (req,res,next)=>{
    
-    res.send('Just check isloggedIn')
+    res.render('pro')
 })
 
 
