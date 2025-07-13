@@ -5,12 +5,22 @@ const bcrypt = require('bcrypt');
 const { generateToken } = require('../utils/generateToken');
 
 
+// To Render a login page
+const getRegisterPage = async (req,res,next)=>{
+    try {
+        res.render('register')
+    } catch (error) {
+        console.log(error.message)
+        res.send(`Can't get Register Page from get Register page (Usercontroller)`)
+    }
+}
+
 //Register controller
 const registerController = async (req,res)=>{
-    const {fullname, email, password} = req.body;
+    const {firstName, lastName, email, password} = req.body;
 
     try {
-        if(!fullname || !email || !password){
+        if(!firstName || !lastName || !email || !password){
             return res.status(403).send('Required field')
         }
 
@@ -24,15 +34,17 @@ const registerController = async (req,res)=>{
         const hashPassword = await bcrypt.hash(password, 10)
 
         const user = await UserModel.create({
-            fullname,
+            firstName,
+            lastName,
             email,
             password: hashPassword
             })
     
         const token= generateToken(user)
         res.cookie('token', token)
-
-    res.send("User is registered successfully")
+        req.flash('Success', "Registered Successfully")
+        res.redirect('login')
+    //res.send("User is registered successfully")
 
     } catch (error) {
         res.send(error.message)
@@ -41,8 +53,18 @@ const registerController = async (req,res)=>{
 }
 
 
+// To Render a login page
+const getLoginPage = async (req,res,next)=>{
+    try {
+        res.render('login')
+    } catch (error) {
+        console.log(error.message)
+        res.send(`Can't get Login Page from get login page (Usercontroller)`)
+    }
+}
 
-//Login controller
+
+//Login controller Post 
 const loginController = async (req,res)=>{
     const {email, password} = req.body;
 
@@ -81,6 +103,8 @@ const loginController = async (req,res)=>{
 
 
 module.exports = {
+    getLoginPage,
+    getRegisterPage,
     registerController,
     loginController
 }

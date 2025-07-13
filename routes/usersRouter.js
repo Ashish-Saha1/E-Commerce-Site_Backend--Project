@@ -5,7 +5,7 @@ const {isLoggedIn} = require('../middlewares/isLoggedIn')
 // const bcrypt = require('bcrypt');
 
 
-const { registerController,loginController} = require('../controller/userController');
+const { registerController,loginController, getLoginPage, getRegisterPage} = require('../controller/userController');
 
 
 
@@ -13,11 +13,20 @@ router.get('/', (req,res)=>{
     res.send(`This is a User check Route`)
 })
 
+//Create/Register a User Get method
+
+router.get('/register', getRegisterPage)
+
+
 
 //Create/Register a User
 
 router.post('/register', registerController)
 
+
+
+//Login User Get method
+router.get('/login', getLoginPage)
 
 
 //Login User
