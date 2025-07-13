@@ -38,6 +38,14 @@ app.use(session({
 
 app.use(flash())
 
+app.use((req, res, next) => {
+  res.locals.successMsg = req.flash('successMsg');
+  res.locals.errorMsg = req.flash('errorMsg');
+  next();
+});
+
+
+
 //Layouts
 app.set('view engine', 'ejs');
 app.use(expressLayouts)

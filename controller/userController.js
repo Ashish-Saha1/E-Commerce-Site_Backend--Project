@@ -21,12 +21,15 @@ const registerController = async (req,res)=>{
 
     try {
         if(!firstName || !lastName || !email || !password){
-            return res.status(403).send('Required field')
+            req.flash('errorMsg', "Required Field")
+            //return res.status(403).send('Required field')
+            return res.redirect('/users/register')
         }
 
         const userExit = await UserModel.findOne({email})
 
         if(userExit){
+            
             return res.send(`User already exit, Please Login`)
         }
 
@@ -42,7 +45,7 @@ const registerController = async (req,res)=>{
     
         const token= generateToken(user)
         res.cookie('token', token)
-        req.flash('Success', "Registered Successfully")
+        req.flash('successMsg', "Registered Successfully")
         res.redirect('login')
     //res.send("User is registered successfully")
 

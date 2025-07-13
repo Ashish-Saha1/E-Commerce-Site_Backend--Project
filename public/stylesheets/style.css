@@ -866,3 +866,13 @@ transition: var(--trasition);
     width: 30rem; 
   }
 }
+
+
+
+
+/* This is for Showing Flash Message */
+.flash-msg{
+  display: flex;
+  justify-content: end;
+  margin: 2% 2% 0 0;
+}
