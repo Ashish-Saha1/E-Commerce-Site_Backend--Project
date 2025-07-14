@@ -4,6 +4,7 @@ const UserModel = require('../models/userModel')
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../utils/generateToken');
 
+const deleteUploadedFile = require('../config/deleteUploadedFile');
 
 
 
@@ -20,19 +21,25 @@ const getRegisterPage = async (req,res,next)=>{
 
 //Register controller
 const registerController = async (req,res)=>{
-    const {firstName, lastName, email, password} = req.body;
+    const {firstName, lastName, email, password, avater} = req.body;
 
     try {
         if(!firstName || !lastName || !email || !password){
             req.flash('errorMsg', "Required Field")
-            //return res.status(403).send('Required field')
+
+            if(req.file){             
+                deleteUploadedFile(req.file.filename)
+            }
+    
             return res.redirect('/users/register')
         }
 
         const userExit = await UserModel.findOne({email})
 
         if(userExit){
-            
+            if(req.file){             
+                deleteUploadedFile(req.file.filename)
+            }
             return res.send(`User already exit, Please Login`)
         }
 
@@ -43,7 +50,8 @@ const registerController = async (req,res)=>{
             firstName,
             lastName,
             email,
-            password: hashPassword
+            password: hashPassword,
+            avater : req.file ? req.file.filename : null
             })
     
         const token= generateToken(user)
