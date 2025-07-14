@@ -5,6 +5,9 @@ const bcrypt = require('bcrypt');
 const { generateToken } = require('../utils/generateToken');
 
 
+
+
+
 // To Render a login page
 const getRegisterPage = async (req,res,next)=>{
     try {

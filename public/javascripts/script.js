@@ -14,22 +14,10 @@ let manuBar = document.querySelector('.hide-manu');
 
 
 
- 
 
 
-  // Nav bar Ends
-
-
-  // let search = document.querySelector('.nav-search');
-  // let cl = document.querySelector("#nav-container-1")
-
-
-  // search.addEventListener('click',function(k){
-  //   k.preventDefault()
-  //   console.log('click')
-  //   if(cl.className === "nav-container-1"){
-  //     cl.classList.remove('nav-container-1')
-  //   }else{
-  //     cl.classList.add('nav-container-1')
-  //   }
-  // })
+  const flashMsg = document.querySelector('.flash-msg');
+  
+  setTimeout(() => {
+    flashMsg.classList.add('hide-flash')
+  }, 2000);

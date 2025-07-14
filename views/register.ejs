@@ -1,7 +1,9 @@
 
-<% if (errorMsg) { %>
- <p class="flash-msg" style="color: red;"><%= errorMsg %></p>
-<% } %>
+    <% if (errorMsg) { %>
+    <p class="flash-msg" style="color: red;"><%= errorMsg %></p>
+    <% } %>
+
+<!-- <p class="flash-msg" style="color: red;">This is an Error Massage</p> -->
 
 <main>
   <div class="row-main">
@@ -10,7 +12,7 @@
         <h3>Create your Shopping Bag Account</h3>
         <!-- <p>to continue to Shopping Bag</p> -->
     </div>
-        <form action="/users/register" method="post" class="signup-form">
+        <form action="/users/register" method="post" enctype="multipart/form-data" class="signup-form">
                 <div class="name">
                     <input type="text" name="firstName" id="" placeholder="First name">
                     <input type="text" name="lastName" id="" placeholder="Last name">
@@ -40,6 +42,10 @@
                 <div class="show-password">
                   <input type="checkbox" name="" id="">
                     <label for="checkbox"> Show password</label>
+                </div>
+
+                <div class="">
+                  <input type="file" name="avater" id="">
                 </div>
 
                 <div class="sign-up">

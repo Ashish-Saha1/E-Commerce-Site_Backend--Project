@@ -16,8 +16,15 @@ const userSchema = mongoose.Schema({
         default: []
     },
     contact : String,
-    picture: String
-})
+    avater: String,
+},
+
+{
+    timestamps: true
+}
+
+
+)
 
 
 const UserModel = mongoose.model('User', userSchema);

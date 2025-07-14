@@ -697,7 +697,7 @@ transition: var(--trasition);
 
  .row-main{
     width: 90%;
-    margin: 5% auto;
+    margin: 10px auto 3% auto;
     padding: 20px 30px;
     box-shadow: var(--box-shadow);
     border: 1px solid rgb(223, 223, 223);
@@ -811,7 +811,7 @@ transition: var(--trasition);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 10% 0;
+    margin: 4% 0 2% 0;
 
   }
 
@@ -871,8 +871,21 @@ transition: var(--trasition);
 
 
 /* This is for Showing Flash Message */
+
+
+
 .flash-msg{
+  height: 30px;
+  overflow: hidden;
   display: flex;
-  justify-content: end;
-  margin: 2% 2% 0 0;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 0px 0;
+  transition: opacity 0.5s ease;
+  
+}
+
+.hide-flash{
+  /* visibility: hidden; */
+  opacity: 0;
 }

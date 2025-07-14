@@ -7,6 +7,12 @@ const {isLoggedIn} = require('../middlewares/isLoggedIn')
 
 const { registerController,loginController, getLoginPage, getRegisterPage} = require('../controller/userController');
 
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
+
+
+
 
 
 router.get('/', (req,res)=>{
@@ -21,7 +27,7 @@ router.get('/register', getRegisterPage)
 
 //Create/Register a User
 
-router.post('/register', registerController)
+router.post('/register', upload.single('avater'), registerController)
 
 
 
