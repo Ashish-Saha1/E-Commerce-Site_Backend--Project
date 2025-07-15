@@ -21,12 +21,11 @@ const getRegisterPage = async (req,res,next)=>{
 
 //Register controller
 const registerController = async (req,res)=>{
-    const {firstName, lastName, email, password, avater} = req.body;
+    const {firstName, lastName, email, password,confirmPassword, avater} = req.body;
 
     try {
-        if(!firstName || !lastName || !email || !password){
+        if(!firstName || !lastName || !email || !password || !confirmPassword){
             req.flash('errorMsg', "Required Field")
-
             if(req.file){             
                 deleteUploadedFile(req.file.filename)
             }
@@ -43,6 +42,14 @@ const registerController = async (req,res)=>{
             return res.send(`User already exit, Please Login`)
         }
 
+        if(password !== confirmPassword){
+            req.flash('passwordMsg', "Both Password are Not Match")
+            if(req.file){             
+                deleteUploadedFile(req.file.filename)
+            }
+            return res.redirect('/users/register')
+       
+        }
 
         const hashPassword = await bcrypt.hash(password, 10)
 

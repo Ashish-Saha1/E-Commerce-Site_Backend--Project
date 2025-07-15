@@ -3,6 +3,11 @@
     <p class="flash-msg" style="color: red;"><%= errorMsg %></p>
     <% } %>
 
+    <% if (passwordMsg) { %>
+    <p class="flash-msg" style="color:red;"><%= passwordMsg %></p>
+    <% } %>
+    
+
 <!-- <p class="flash-msg" style="color: red;">This is an Error Massage</p> -->
 
 <main>
@@ -31,16 +36,18 @@
 
                 <div class="password">
                     <div>
-                      <input type="password" name="password" id="" placeholder="Password">
-                      <input type="password" name="confirmPassword" id="" placeholder="Confirm">
+                      <input type="password" name="password" class="pass" placeholder="Password">
+                      <input type="password" name="confirmPassword" class="pass" placeholder="Confirm">
                     </div>
         
                     <h6>Use 8 or more characters with a mix of letters, numbers & symbols</h6>
                     
+
+                    
                 </div>
 
                 <div class="show-password">
-                  <input type="checkbox" name="" id="">
+                  <input type="checkbox" name="" id="checkbox">
                     <label for="checkbox"> Show password</label>
                 </div>
 
