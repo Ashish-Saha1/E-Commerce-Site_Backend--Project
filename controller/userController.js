@@ -87,21 +87,21 @@ const getLoginPage = async (req,res,next)=>{
 
 //Login controller Post 
 const loginController = async (req,res)=>{
-    const {email, password} = req.body;
+   
 
     try {
+        const {email, password} = req.body;
 
             if(!email || !password){
                 return res.status(403).send('Required field')
             }
 
-    
         const user = await UserModel.findOne({email})
-
+        
         if(!user){
             return res.send(`Email or Password is not correct`)
         }
-
+        res.locals.userData = user;
         const matchPassword = await bcrypt.compare(password, user.password);
 
         if(!matchPassword){
@@ -110,7 +110,7 @@ const loginController = async (req,res)=>{
 
         const token =  generateToken(user)
         res.cookie('token', token)
-        res.send(`Login Successfully`)
+        res.redirect('/users/products')
 
     } catch (error) {
         res.send(error.message)

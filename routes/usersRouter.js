@@ -74,10 +74,16 @@ router.get('/login', getLoginPage)
 //Login User
 router.post('/login', loginController)
 
+router.get('/products', (req,res,next)=>{
 
-router.get('/pro', isLoggedIn, (req,res,next)=>{
-   
-    res.render('pro')
+    res.render('products')
+    
+})
+
+router.get('/profile', (req,res,next)=>{
+
+    res.render('profile')
+    
 })
 
 

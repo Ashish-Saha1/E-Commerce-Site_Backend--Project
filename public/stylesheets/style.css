@@ -277,12 +277,12 @@
 
 }
 
-.discount marquee{
+/* .discount marquee{
   margin-top:10%;
   font-size: 20px;
   color: rgb(0, 0, 0);
   font-weight: bolder;
-}
+} */
 
 .features{
   display: flex;
@@ -317,7 +317,7 @@
 /* Main Starts */
 
 .main-container{
-  margin: 10% 0;
+  margin: 3% 0;
  
 
 }
@@ -870,7 +870,7 @@ transition: var(--trasition);
 
 
 
-/* This is for Showing Flash Message */
+/* ----------------------This is for Showing Flash Message ----------------*/
 
 
 
@@ -889,3 +889,114 @@ transition: var(--trasition);
   /* visibility: hidden; */
   opacity: 0;
 }
+
+
+/* ----------------------This is for profile page------------- */
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    margin: 10% 0;
+    gap: 20px;
+
+  }
+
+  .profile__user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    gap: 20px;
+    width:80% ;
+  }
+  
+  .user-details{
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  .user-details img{
+    width: 30%;
+    border-radius: 5px;
+    border: solid 2px gainsboro;
+  }
+
+   .user-details ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+   }
+
+   .user-edit{
+    margin-bottom: 10%;
+    margin-top: 3%;
+   }
+  .user-edit ul{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+   
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+.profile__user{
+    padding: 10px;
+    gap: 20px;
+    width:60% ;
+  }
+
+.user-details{
+    width: 100%;
+    text-align: center;
+  }
+
+.user-details img{
+    width: 35%;
+    border-radius: 5px;
+    border: solid 2px gainsboro;
+  }
+
+
+}
+
+
+
+  @media screen and (min-width:992px) {
+    
+ .profile__user{
+    width:35% ;
+  }
+
+  .user-details{
+    width: 100%;
+    text-align: center;
+  }
+
+.user-details img{
+    width: 50%;
+    border-radius: 5px;
+    border: solid 2px gainsboro;
+  }
+
+
+
+  }
