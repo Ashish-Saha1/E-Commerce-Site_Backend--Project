@@ -9,10 +9,13 @@ const deleteUploadedFile = require('../config/deleteUploadedFile');
 
 
 
-// To Render a login page
+// To Render a register page
 const getRegisterPage = async (req,res,next)=>{
     try {
-        res.render('register')
+        const locals = {
+            title : 'Register Page'
+        }
+        res.render('register', {locals})
     } catch (error) {
         console.log(error.message)
         res.send(`Can't get Register Page from get Register page (Usercontroller)`)
@@ -77,7 +80,10 @@ const registerController = async (req,res)=>{
 // To Render a login page
 const getLoginPage = async (req,res,next)=>{
     try {
-        res.render('login')
+        const locals = {
+            title : 'Login Page'
+        }
+        res.render('login', {locals})
     } catch (error) {
         console.log(error.message)
         res.send(`Can't get Login Page from get login page (Usercontroller)`)
