@@ -2,7 +2,12 @@ const express = require('express');
 const router = express.Router();
 const {isLoggedIn} = require('../middlewares/isLoggedIn')
 
-const { registerController,loginController, getLoginPage, getRegisterPage} = require('../controller/userController');
+const { registerController,
+        loginController, 
+        getLoginPage, 
+        getRegisterPage
+
+        } = require('../controller/userController');
 const upload = require('../config/multerUpload');
 
 
@@ -75,7 +80,7 @@ router.get('/login', getLoginPage)
 router.post('/login', loginController)
 
 router.get('/products', (req,res,next)=>{
-
+console.log('Session userData:', req.session.userData);
     res.render('products')
     
 })

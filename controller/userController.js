@@ -103,11 +103,14 @@ const loginController = async (req,res)=>{
             }
 
         const user = await UserModel.findOne({email})
-        
+         req.session.userData = user;
+       
+
         if(!user){
             return res.send(`Email or Password is not correct`)
         }
-        res.locals.userData = user;
+        
+        
         const matchPassword = await bcrypt.compare(password, user.password);
 
         if(!matchPassword){
