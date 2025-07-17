@@ -1,5 +1,10 @@
 
-        <p><%= userData %></p>
+    <% if (userData) { %>
+     <p><%= userData.firstName %></p>
+    <% }else{ %>
+        <p> No UserData found</p>
+    <% } %>
+     
 
 <main>
     <div class="main-container">

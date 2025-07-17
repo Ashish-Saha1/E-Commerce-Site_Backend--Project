@@ -35,6 +35,9 @@ app.use(session({
     secret: process.env.EXPRESS_SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie : {
+        maxAge : 1000 * 60 * 60 * 24 //24 hour
+    }
     
 }))
 
@@ -51,6 +54,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
     res.locals.userData = req.session.userData || null;
+    res.locals.token = req.cookies.token
     next();
 });
 

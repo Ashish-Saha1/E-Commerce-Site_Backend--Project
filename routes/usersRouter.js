@@ -13,46 +13,6 @@ const upload = require('../config/multerUpload');
 
 
 
-// const multer  = require('multer');
-// const path = require('path');
-
-
-
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//     cb(null, 'uploads/')
-//     },
-//     filename: function (req, file, cb) {
-//         const extName = path.extname(file.originalname);
-
-//     const fileName = file.originalname.replace(extName, "")
-//                                         .toLowerCase()
-//                                         .split(' ')
-//                                         .join("_") + "_" + Date.now()
-
-//         cb(null, fileName + extName)
-        
-//     }
-// })
-
-// const upload = multer({ 
-//     storage : storage,
-//     limits: {
-//         fileSize : 3000000, //1mb
-//     },
-//     fileFilter : (req,file,cb)=>{
-//         if(file.mimetype === "image/png" || file.mimetype === "image/jpg" || file.mimetype === "image/jpeg"){
-//             cb(null, true)
-//         }else{
-//             cb(new Error("Don't accept file type which you try to upload"))
-//         }
-//     }
-
-// }
-// )
-
-
-
 
 
 
@@ -79,20 +39,28 @@ router.get('/login', getLoginPage)
 //Login User
 router.post('/login', loginController)
 
-router.get('/products', (req,res,next)=>{
-console.log('Session userData:', req.session.userData);
-    res.render('products')
-    
+
+//Products
+router.get('/products', isLoggedIn, (req,res,next)=>{
+    const locals = {
+        title : "Products"
+    }
+    console.log('Session userData:', req.session.userData);
+    res.render('products', {locals})
 })
 
+
+//Profile
 router.get('/profile', (req,res,next)=>{
-
-    res.render('profile')
-    
+    res.render('profile') 
 })
 
 
-
-
+//Logout
+  router.get('/logout', (req,res,next)=>{
+    const token = req.cookies.token
+    res.clearCookie('token')
+    res.redirect('login')
+})  
 
 module.exports = router;
