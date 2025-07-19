@@ -25,9 +25,7 @@ router.get('/', (req,res)=>{
 router.get('/register', getRegisterPage)
 
 
-
 //Create/Register a User
-
 router.post('/register', upload.single('avater'), registerController)
 
 
@@ -40,13 +38,27 @@ router.get('/login', getLoginPage)
 router.post('/login', loginController)
 
 
-//Products
-router.get('/products', isLoggedIn, (req,res,next)=>{
+
+
+
+
+
+//Shop
+router.get('/shop', isLoggedIn, (req,res,next)=>{
     const locals = {
-        title : "Products"
+        title : "Shop"
     }
-    console.log('Session userData:', req.session.userData);
-    res.render('products', {locals})
+    // console.log('Session userData:', req.session.userData);
+    res.render('shop', {locals})
+})
+
+
+//Contact
+router.get('/contact', (req,res,next)=>{
+    const locals = {
+        title : "Contact"
+    }
+    res.render('contact', {locals})
 })
 
 

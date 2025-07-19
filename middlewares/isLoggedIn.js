@@ -7,7 +7,9 @@ const User = require('../models/userModel')
             const token = req.cookies.token;
             if(!token){
                 req.flash("FlashError", "You need to login first")
-                return res.send(`Not Authenticated`)
+                                
+                //return res.send(`Not Authenticated`)
+                return res.redirect(`/users/login`)
             }
 
             const decode = await jwt.verify(token, process.env.JWT_SECRET)

@@ -7,4 +7,21 @@ router.get('/', (req,res)=>{
 })
 
 
+
+router.post("/createProduct", (req,res,next)=>{
+    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;

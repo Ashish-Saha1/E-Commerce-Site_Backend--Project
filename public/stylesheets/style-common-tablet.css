@@ -40,6 +40,14 @@
   padding: var(--padding);
  }
 
+
+.profile-image{
+    width: 3.4rem;
+    height: 3.4rem;
+
+  }
+
+
  #manu-bar{
   width: 100%;
   height: auto;
@@ -93,14 +101,7 @@
    padding: 6px;
   }
 
-  .profile-image{
-    width: 3.2rem;
-    height: auto;
-    border-radius: 50%;
-    border: 1px solid black;
-    padding: 3px 2px;
-    
-  }
+  
 
   .cart .fa-search{
     visibility: visible;
