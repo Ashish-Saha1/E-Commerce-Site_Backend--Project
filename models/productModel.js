@@ -2,17 +2,19 @@
 const mongoose = require('mongoose');
 
 const productSchema = mongoose.Schema({
-    image : String,
+    avater : String,
     productName : String,
-    price : Number,
-    productDetails : String,
+    price : String,
+    productDetail : String,
     discount: {
         type : Number,
         default : 0
     },
-    bgColor : String,
-    panelColor : String,
-    textColor : String,
+    stock: {
+        type : Number,
+        default : 1
+    },
+
 })
 
 
