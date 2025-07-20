@@ -61,7 +61,39 @@
         </section>
 
         <section class="products">
-                <div class="product">
+                <% products.forEach(element => { %>
+                        <div class="product">
+                            <article class="product-stock">
+                                <span>5 In Stock</span>
+                                <hr>
+                                <span>3 Sold</span>
+                            </article>
+
+                            <div class="product-image">
+                                <img src="/uploads/<%= element.avater %>" alt="Headphone image">
+                            </div>
+
+                            <div class="product-details">
+                                <h3><%= element.productName %></h3>
+
+                                <span class="dot-green"></span>
+                                <span class="dot-black"></span>
+                                <span class="dot-red"></span>
+                                
+                                <p><%= element.productDetail %>... <a href="product.html">Learn More</a> </p>
+
+                                <h4><%= element.price %></h4>
+
+                                <h5>Rating: 4.5/5</h5>
+
+                                <button class="btn">Add To Cart</button>
+                            </div>
+                        </div>
+                <% }) %>
+
+                
+                
+                <!-- <div class="product">
                     <article class="product-stock">
                         <span>5 In Stock</span>
                         <hr>
@@ -87,147 +119,7 @@
 
                         <button class="btn">Add To Cart</button>
                     </div>
-                </div>
-
-                <div class="product">
-                    <article class="product-stock">
-                        <span>5 In Stock</span>
-                        <hr>
-                        <span>3 Sold</span>
-                    </article>
-
-                    <div class="product-image">
-                        <img src="/images/product-drone.jpg" alt="Drone image">
-                    </div>
-
-                    <div class="product-details">
-                        <h3>Drone</h3>
-
-                        <span class="dot-green"></span>
-                        <span class="dot-black"></span>
-                        <span class="dot-red"></span>
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
-
-                        <h4>$225.99</h4>
-
-                        <h5>Rating: 4.5/5</h5>
-
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <article class="product-stock">
-                        <span>5 In Stock</span>
-                        <hr>
-                        <span>3 Sold</span>
-                    </article>
-
-                    <div class="product-image">
-                        <img src="/images/product-laptop.jpg" alt="Headphone image">
-                    </div>
-
-                    <div class="product-details">
-                        <h3>Laptop</h3>
-
-                        <span class="dot-green"></span>
-                        <span class="dot-black"></span>
-                        <span class="dot-red"></span>
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
-
-                        <h4>$225.99</h4>
-
-                        <h5>Rating: 4.5/5</h5>
-
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <article class="product-stock">
-                        <span>5 In Stock</span>
-                        <hr>
-                        <span>3 Sold</span>
-                    </article>
-
-                    <div class="product-image">
-                        <img src="/images/product-phone.jpg" alt="Headphone image">
-                    </div>
-
-                    <div class="product-details">
-                        <h3>Phone</h3>
-
-                        <span class="dot-green"></span>
-                        <span class="dot-black"></span>
-                        <span class="dot-red"></span>
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
-
-                        <h4>$225.99</h4>
-
-                        <h5>Rating: 4.5/5</h5>
-
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <article class="product-stock">
-                        <span>5 In Stock</span>
-                        <hr>
-                        <span>3 Sold</span>
-                    </article>
-
-                    <div class="product-image">
-                        <img src="/images/product-sunglass.jpg" alt="Headphone image">
-                    </div>
-
-                    <div class="product-details">
-                        <h3>Sunglass</h3>
-
-                        <span class="dot-green"></span>
-                        <span class="dot-black"></span>
-                        <span class="dot-red"></span>
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
-
-                        <h4>$225.99</h4>
-
-                        <h5>Rating: 4.5/5</h5>
-
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <article class="product-stock">
-                        <span>5 In Stock</span>
-                        <hr>
-                        <span>3 Sold</span>
-                    </article>
-
-                    <div class="product-image">
-                        <img src="/images/product-watch.jpg" alt="Headphone image">
-                    </div>
-
-                    <div class="product-details">
-                        <h3>Watch</h3>
-
-                        <span class="dot-green"></span>
-                        <span class="dot-black"></span>
-                        <span class="dot-red"></span>
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="#">Learn More</a> </p>
-
-                        <h4>$225.99</h4>
-
-                        <h5>Rating: 4.5/5</h5>
-
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                </div>
+                </div> -->
            
         </section>
 

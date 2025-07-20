@@ -1,6 +1,7 @@
 
 
-const UserModel = require('../models/userModel') 
+const UserModel = require('../models/userModel');
+const productModel = require('../models/productModel');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../utils/generateToken');
 
@@ -128,6 +129,21 @@ const loginController = async (req,res)=>{
 }
 
 
+const shopController = async (req,res,next)=>{
+        const locals = {
+            title : "Shop"
+        }
+
+    try {
+        const products = await productModel.find()
+    
+    res.render('shop', {locals, products})
+    } catch (error) {
+        res.status(500).json({JsonMsg: "Something Problem from shopController"})
+    }
+}
+
+
 
 
 
@@ -136,5 +152,6 @@ module.exports = {
     getLoginPage,
     getRegisterPage,
     registerController,
-    loginController
+    loginController,
+    shopController
 }

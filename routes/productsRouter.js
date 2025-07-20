@@ -25,7 +25,7 @@ router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
         const stock = req.body.stock ? Number(req.body.stock) : 0;
 
             if(!productName || !productDetail || !price || !avater){
-                req.flash('errorMsg', "Required Field")
+                req.flash('errorMsg', "Please fill up all field")
                 return res.redirect("/products/createProduct")
                 
             }

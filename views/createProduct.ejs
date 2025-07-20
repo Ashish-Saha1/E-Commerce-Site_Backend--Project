@@ -1,12 +1,14 @@
 
 
 
-    <!-- <%# if (successMsg) { %>
-     <p class="flash-msg" style="color: green;"><%# successMsg  %></p>
-    <%#}else{ %>
-        <p class="flash-msg" style="color: red;"><%# errorMsg %></p>
-    <%#}  %> -->
-    <p class="flash-msg"><%= errorMsg %></p>
+    <% if (errorMsg) { %>
+        <p class="flash-msg" style="color: red;"><%= errorMsg %></p>
+    <% } %>
+
+    <% if (successMsg) { %>
+        <p class="flash-msg" style="color: green;"><%= successMsg  %></p>
+    <% } %>
+    
 
 <main>
   <div class="row-main">

@@ -5,7 +5,8 @@ const {isLoggedIn} = require('../middlewares/isLoggedIn')
 const { registerController,
         loginController, 
         getLoginPage, 
-        getRegisterPage
+        getRegisterPage,
+        shopController
 
         } = require('../controller/userController');
 const upload = require('../config/multerUpload');
@@ -44,13 +45,7 @@ router.post('/login', loginController)
 
 
 //Shop
-router.get('/shop', isLoggedIn, (req,res,next)=>{
-    const locals = {
-        title : "Shop"
-    }
-    // console.log('Session userData:', req.session.userData);
-    res.render('shop', {locals})
-})
+router.get('/shop', isLoggedIn, shopController)
 
 
 //Contact
