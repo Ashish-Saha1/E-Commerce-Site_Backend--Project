@@ -19,10 +19,15 @@ router.get("/createProduct",upload.single('avater'), (req,res,next)=>{
 router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
 
     try {
-        const {productName, productDetail, discount, price, stock} = req.body;
-        const avater = req.file? req.file.filename: null
+        const {productName, productDetail, price} = req.body;
+        const avater = req.file? req.file.filename: null;
+        const discount = req.body.discount ? Number(req.body.discount) : 0;
+        const stock = req.body.stock ? Number(req.body.stock) : 0;
+
             if(!productName || !productDetail || !price || !avater){
-                return res.send(`Please fill all fields`)
+                req.flash('errorMsg', "Required Field")
+                return res.redirect("/products/createProduct")
+                
             }
 
             const product = await ProductModel.create({
@@ -34,9 +39,9 @@ router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
                 stock
             })
 
-      console.log(product);
-      
-            res.send("Product Create Successfully")
+    
+            req.flash('successMsg', "Registered Successfully")
+            res.redirect("/products/createProduct")
 
     } catch (error) {
         console.log(error.message)

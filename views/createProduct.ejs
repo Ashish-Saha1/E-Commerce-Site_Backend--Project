@@ -1,45 +1,21 @@
 
 
 
+    <!-- <%# if (successMsg) { %>
+     <p class="flash-msg" style="color: green;"><%# successMsg  %></p>
+    <%#}else{ %>
+        <p class="flash-msg" style="color: red;"><%# errorMsg %></p>
+    <%#}  %> -->
+    <p class="flash-msg"><%= errorMsg %></p>
 
 <main>
   <div class="row-main">
     <div class="main-head">
+        
         <h2>Shopping Bag</h2>
         
     </div>
         
-    <!-- <form action="/products/createProduct" method="post" enctype="multipart/form-data" class="signup-form">
-        
-                <div class="contact">
-                    <input type="text" name="productName" id="" placeholder="Name">                  
-                </div>
-
-                <div class="contact">
-                    <textarea name="productDetail" id="" placeholder="Product Details"></textarea>
-
-                </div>
-
-                <div class="contact">
-                    <input type="text" name="price" id="" placeholder="Product Price">                  
-                </div>
-
-                <div class="name">
-                    <input type="text" name="discount" id="" placeholder="Discount">
-                    <input type="text" name="stock" id="" placeholder="Stock Quantity">
-                    
-                </div>
-                
-
-                <div class="">
-                    <input type="file" name="avater" id="">
-                </div>
-
-                <div class="sign-up">
-                    <button type="submit" class="button-style-1">Upload Product</button>
-                
-                </div>
-        </form> -->
   
   <form action="/products/createProduct" method="post" enctype="multipart/form-data" class="signup-form">
         
