@@ -16,26 +16,26 @@ router.get("/createProduct",upload.single('avater'), (req,res,next)=>{
 })
 
 
-router.post("/createProduct", async (req,res,next)=>{
+router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
 
     try {
-        // const {productName, productDetail, discount, price, avater, stock} = req.body;
+        const {productName, productDetail, discount, price, stock} = req.body;
+        const avater = req.file? req.file.filename: null
+            if(!productName || !productDetail || !price || !avater){
+                return res.send(`Please fill all fields`)
+            }
 
-            // if(!productName || !productDetail || !price || !avater){
-            //     return res.send(`Please fill all fields`)
-            // }
+            const product = await ProductModel.create({
+                productName,
+                productDetail,
+                price,
+                avater,
+                discount,
+                stock
+            })
 
-            // const product = await ProductModel.create({
-            //     productName,
-            //     productDetail,
-            //     price,
-            //     avater,
-            //     discount,
-            //     stock
-            // })
-
-            const aaa = req.body;
-        console.log(aaa)
+      console.log(product);
+      
             res.send("Product Create Successfully")
 
     } catch (error) {
