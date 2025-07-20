@@ -11,7 +11,10 @@ router.get('/', (req,res)=>{
 
 
 router.get("/createProduct",upload.single('avater'), (req,res,next)=>{
-    res.render('createProduct')
+    const locals = {
+        title: "Product Create Page"
+    }
+    res.render('createProduct', {locals})
     //res.send("This is to get create product page only")
 })
 
@@ -51,7 +54,9 @@ router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
 
 
 
-
+router.get('/productDetails', (req,res)=>{
+    res.render('productDetails')
+})
 
 
 
