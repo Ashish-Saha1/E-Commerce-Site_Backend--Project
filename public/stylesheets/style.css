@@ -1209,8 +1209,9 @@ transition: var(--trasition);
   }
 
   .pic-container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
+    padding: 5px 10px;
   }
 
   .pic-container img{
@@ -1221,8 +1222,9 @@ transition: var(--trasition);
   }
 
   .details-container{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 100%;
+    padding: 5px 15px;
   }
 
 .product-details{
@@ -1256,11 +1258,50 @@ transition: var(--trasition);
 .promocode{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   margin: 20px 0;
 }
 
 .promocode input{
-  height: 25px;
-  width: 40%;
+  height: 28px;
+  width: 25%;
+}
+
+.quanty{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.quanty input{
+  width: 40px;
+  height: 35px;
+  text-align: center;
+  padding: 0 10px;
+  font-weight: 600;
+}
+
+.quanty-group{
+  display: flex;
+  align-items: center;
+}
+
+.plus, .minus{
+  font-weight: 600;
+  font-size: 25px;
+  color: #4c5353;
+  border: 1px solid gray;
+  width: 40px;
+  height: 35px;
+  text-align: center;
+}
+
+.subtotal{
+  margin-top: 25px;
+}
+
+.subtotal span{
+  font-weight: 600;
 }
