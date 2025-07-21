@@ -1203,9 +1203,10 @@ transition: var(--trasition);
 
   .container{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     margin: 3% 0;
+    border: 1px solid beige;
   }
 
   .pic-container{
@@ -1244,6 +1245,10 @@ transition: var(--trasition);
 
 .product-price{
   margin: 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
 }
 
 .delivery-note{
@@ -1265,6 +1270,7 @@ transition: var(--trasition);
 .promocode input{
   height: 28px;
   width: 25%;
+  padding: 0 10px;
 }
 
 .quanty{
@@ -1279,7 +1285,7 @@ transition: var(--trasition);
   width: 40px;
   height: 35px;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 5px;
   font-weight: 600;
 }
 
@@ -1299,9 +1305,29 @@ transition: var(--trasition);
 }
 
 .subtotal{
-  margin-top: 25px;
+  margin-top: 35px;
+  font-weight: 600;
 }
 
 .subtotal span{
   font-weight: 600;
+}
+
+.add-cart input{
+  margin-top: 40px;
+  width: 15rem;
+  height: 3rem;
+  padding: 5px 15px;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--background-color-1);
+  cursor: pointer;
+  box-shadow: 2px 5px 1px gainsboro;
+  transition: all 0.2s;
+}
+
+.add-cart input:active {
+  transform: translateY(2px);
+  box-shadow: 1px 2px 1px gainsboro;
 }

@@ -16,46 +16,80 @@ let manuBar = document.querySelector('.hide-manu');
 
 
 //Flash msg manage
-  // const flashMsg = document.querySelector('.flash-msg');
-  
-  // setTimeout(() => {
-  //   flashMsg.classList.add('hide-flash')
-  // }, 2000);
 
-   const flashMsg = document.querySelectorAll('.flash-msg');
+  const flashMsg = document.querySelectorAll('.flash-msg');
   
   setTimeout(() => {
     for(let i of flashMsg){
-       i.classList.add('hide-flash')
+      i.classList.add('hide-flash')
     }
   }, 2000);
 
 
 
-  //Show hide password to front end
 
-  // const password = document.querySelector('.pass');
-  // const checkbox = document.getElementById('checkbox');
-
-  // checkbox.addEventListener('change', function(){
-  //   if(this.checked){
-  //      password.type = 'text'
-  //   }else{
-  //     password.type = 'password'
-  //   }
-     
-  // })
 
   const password = document.querySelectorAll('.pass');
   const checkbox = document.getElementById('checkbox');
 
-  checkbox.addEventListener('change', function(){
+  if(checkbox){
+      checkbox.addEventListener('change', function(){
     for(let i of password){
         if(this.checked){
-       i.type = 'text'
+        i.type = 'text'
     }else{
       i.type = 'password'
     }
     }
-     
+  
   })
+  }
+
+
+
+
+
+   //Increse or decrease input Quantity
+
+  const plus = document.querySelector('.plus');
+  const minus = document.querySelector('.minus');
+  const inputQty = document.querySelector('.inputQty');
+
+  console.log(inputQty);
+
+  if(plus){
+     plus.addEventListener('click', function(e){
+    e.preventDefault()
+    inputQty.value ++
+    
+  })
+  }
+
+
+  
+    if(minus){
+       minus.addEventListener('click', function(e){
+        e.preventDefault()
+        if(inputQty.value < 2){
+          console.log( '1 is the value');
+          
+        }else{
+          inputQty.value --
+        }
+          
+      })
+    }
+  
+
+
+
+
+    const productPrice = document.querySelector('.product-price');
+    const productQty = document.querySelector('.inputQty');
+    const totalPrice = document.querySelector('.totalPrice');
+
+    console.log(productPrice.innerHTML, productQty.value, totalPrice.innerHTML);
+    
+    totalPrice.value = Number(productPrice.innerHTML) * Number(productQty.value);
+    console.log(totalPrice.innerHTML );
+    
