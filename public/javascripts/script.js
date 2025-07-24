@@ -49,19 +49,32 @@ let manuBar = document.querySelector('.hide-manu');
 
 
 
-   //Increse or decrease input Quantity
+   //Increse or decrease input Quantity & calculate total amount as well
 
-  const plus = document.querySelector('.plus');
-  const minus = document.querySelector('.minus');
-  const inputQty = document.querySelector('.inputQty');
+    const plus = document.querySelector('.plus');
+    const minus = document.querySelector('.minus');
+    const inputQty = document.querySelector('.inputQty');
 
-  console.log(inputQty);
+
+   
+
+    
+    const totalCountCalculate = ()=>{
+        const productPrice = document.querySelector('.product-price');
+        const productQty = document.querySelector('.inputQty');
+        const totalPrice = document.querySelector('.totalPrice');
+
+        return totalPrice.innerHTML = Number(productPrice.textContent) * Number(productQty.value);
+
+    }
+
+
 
   if(plus){
-     plus.addEventListener('click', function(e){
+    plus.addEventListener('click', function(e){
     e.preventDefault()
     inputQty.value ++
-    
+    totalCountCalculate()
   })
   }
 
@@ -75,8 +88,23 @@ let manuBar = document.querySelector('.hide-manu');
           
         }else{
           inputQty.value --
+          totalCountCalculate()
         }
           
+      })
+    }
+
+    console.log(inputQty.value);
+    
+
+    if(inputQty){
+      inputQty.addEventListener('input', function(e){
+        e.preventDefault();
+        if(inputQty.value < 0){
+          console.log('Input value is smaller then 0');
+          
+        }
+        totalCountCalculate()
       })
     }
   
@@ -84,12 +112,12 @@ let manuBar = document.querySelector('.hide-manu');
 
 
 
-    const productPrice = document.querySelector('.product-price');
-    const productQty = document.querySelector('.inputQty');
-    const totalPrice = document.querySelector('.totalPrice');
+    // const productPrice = document.querySelector('.product-price');
+    // const productQty = document.querySelector('.inputQty');
+    // const totalPrice = document.querySelector('.totalPrice');
 
-    console.log(productPrice.innerHTML, productQty.value, totalPrice.innerHTML);
+    // console.log(productPrice.textContent, productQty.value, totalPrice.textContent);
     
-    totalPrice.value = Number(productPrice.innerHTML) * Number(productQty.value);
-    console.log(totalPrice.innerHTML );
+    //  totalPrice.innerHTML = Number(productPrice.textContent) * Number(productQty.value);
+    // console.log(totalPrice.innerHTML );
     
