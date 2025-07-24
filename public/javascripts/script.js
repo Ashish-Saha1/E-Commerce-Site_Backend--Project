@@ -53,9 +53,9 @@ let manuBar = document.querySelector('.hide-manu');
 
     const plus = document.querySelector('.plus');
     const minus = document.querySelector('.minus');
-    const inputQty = document.querySelector('.inputQty');
+    let inputQty = document.querySelector('.inputQty');
 
-
+     
    
 
     
@@ -94,15 +94,15 @@ let manuBar = document.querySelector('.hide-manu');
       })
     }
 
-    console.log(inputQty.value);
+
     
 
     if(inputQty){
       inputQty.addEventListener('input', function(e){
         e.preventDefault();
+        inputQty.value = inputQty.value.replace(/[^0-9]/ig, "0")
         if(inputQty.value < 0){
           console.log('Input value is smaller then 0');
-          
         }
         totalCountCalculate()
       })
