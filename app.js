@@ -55,7 +55,8 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
     res.locals.userData = req.session.userData || null;
-    res.locals.token = req.cookies.token
+    res.locals.token = req.cookies.token;
+    
     next();
 });
 

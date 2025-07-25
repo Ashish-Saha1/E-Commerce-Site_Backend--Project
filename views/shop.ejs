@@ -75,13 +75,9 @@
 
                             <div class="product-details">
                                 <h3><%= element.productName %></h3>
-
-                                <span class="dot-green"></span>
-                                <span class="dot-black"></span>
-                                <span class="dot-red"></span>
                                 
-                                <p><%= element.productDetail %>... <a href="product.html">Learn More</a> </p>
-
+                                <p class="shop-product-details"><%= element.productDetail %>...<a href="/products/productdetails">Learn More</a>  </p>
+                                
                                 <h4><%= element.price %></h4>
 
                                 <h5>Rating: 4.5/5</h5>
@@ -93,34 +89,35 @@
 
                 
                 
-                <!-- <div class="product">
-                    <article class="product-stock">
-                        <span>5 In Stock</span>
-                        <hr>
-                        <span>3 Sold</span>
-                    </article>
 
-                    <div class="product-image">
-                        <img src="/images/product-shoe.jpg" alt="Headphone image">
-                    </div>
 
-                    <div class="product-details">
-                        <h3>Bata Scollar Shoes</h3>
+                <!-- <%# products.forEach(element => { %>
+                        <div class="product">
+                            <article class="product-stock">
+                                <span>5 In Stock</span>
+                                <hr>
+                                <span>3 Sold</span>
+                            </article>
 
-                        <span class="dot-green"></span>
-                        <span class="dot-black"></span>
-                        <span class="dot-red"></span>
-                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit amet consectetur sit amet consectetur quaerat... <a href="product.html">Learn More</a> </p>
+                            <div class="product-image">
+                                <img src="/uploads/<%#= element.avater %>" alt="Headphone image">
+                            </div>
 
-                        <h4>$225.99</h4>
+                            <div class="product-details">
+                                <h3><%#= element.productName %></h3>
+                                
+                                <p class="shop-product-details"><%#= element.productDetail %>...<a href="/products/productdetails">Learn More</a>  </p>
+                                
+                                <h4><%#= element.price %></h4>
 
-                        <h5>Rating: 4.5/5</h5>
+                                <h5>Rating: 4.5/5</h5>
 
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                </div> -->
-           
+                                <button class="btn">Add To Cart</button>
+                            </div>
+                        </div>
+                <%# }) %> -->
+        
+    
         </section>
 
 

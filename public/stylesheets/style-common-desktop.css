@@ -106,3 +106,166 @@ footer{
   flex: 1;
   text-align: center;
 }
+
+
+
+
+/* ------------------------- Product Details Page---------------------- */
+
+  /* .container{
+    display: flex;
+    justify-content: center;
+    margin: 3% 0;
+    border: 1px solid beige;
+  }
+
+  .pic-container{
+    width: 100%;
+    padding: 5px 10px;
+  }
+
+  .pic-container img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .details-container{
+    width: 100%;
+    padding: 5px 15px;
+  }
+
+.product-details{
+  margin-top: 30px;
+}
+
+.product-style{
+  display: flex;
+  margin: 15px 0;
+  
+}
+
+.product-style label{
+  width: 120px;
+  font-weight: 600;
+}
+
+.product-price-div{
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+}
+
+.delivery-note{
+  margin-bottom: 15px;
+}
+
+.delivery-note span{
+  display: inline-block;
+  color: red;
+  margin-bottom: 5px;
+}
+.promocode{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 20px 0;
+}
+
+.promocode input{
+  height: 28px;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.quanty{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+
+.quanty input{
+  width: 40px;
+  height: 35px;
+  text-align: center;
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+.quanty-group{
+  display: flex;
+  align-items: center;
+}
+
+.plus, .minus{
+  font-weight: 600;
+  font-size: 25px;
+  color: #4c5353;
+  border: 1px solid gray;
+  width: 40px;
+  height: 35px;
+  text-align: center;
+}
+
+.subtotal{
+  margin-top: 35px;
+  font-weight: 600;
+}
+
+.subtotal span{
+  font-weight: 600;
+}
+
+.add-cart input{
+  margin-top: 40px;
+  width: 15rem;
+  height: 3rem;
+  padding: 5px 15px;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--background-color-1);
+  cursor: pointer;
+  box-shadow: 2px 5px 1px gainsboro;
+  transition: all 0.2s;
+}
+
+.add-cart input:active {
+  transform: translateY(2px);
+  box-shadow: 1px 2px 1px gainsboro;
+}
+
+
+
+.product-description{
+  margin: 5% 10px;
+}
+
+.product-details h2{
+  color: #818181;
+  margin-bottom: 25px;
+}
+
+.product-details p{
+  line-height: 25px;
+  margin-bottom: 40px;
+}
+
+.product-features h2{
+  color: #818181;
+  margin-bottom: 25px;
+}
+
+.product-features ul > li{
+  margin-bottom: 10px;
+  font-weight: 600;
+ 
+}
+
+.product-features ul > li span{
+  font-weight: 400;
+} */
