@@ -54,8 +54,25 @@ router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
 
 
 
-router.get('/productDetails', (req,res)=>{
-    res.render('productDetails')
+router.get('/productDetails/:id', async (req,res)=>{
+    const params = req.params.id;
+    const locals = {
+        title: "Product Create Page"
+    }
+
+    try {
+
+        const product = await ProductModel.findOne({_id : params})
+
+        console.log(product);
+        
+
+        res.render('productDetails', {locals, product})
+    } catch (error) {
+        
+    }
+
+    
 })
 
 
