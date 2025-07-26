@@ -22,7 +22,7 @@ router.get("/createProduct",upload.single('avater'), (req,res,next)=>{
 router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
 
     try {
-        const {productName, productDetail, price} = req.body;
+        const {productName, productDetail, price, brand, color, type, material} = req.body;
         const avater = req.file? req.file.filename: null;
         const discount = req.body.discount ? Number(req.body.discount) : 0;
         const stock = req.body.stock ? Number(req.body.stock) : 0;
@@ -39,7 +39,11 @@ router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
                 price,
                 avater,
                 discount,
-                stock
+                stock,
+                brand, 
+                color, 
+                type, 
+                material
             })
 
     
@@ -57,14 +61,13 @@ router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
 router.get('/productDetails/:id', async (req,res)=>{
     const params = req.params.id;
     const locals = {
-        title: "Product Create Page"
+        title: "Product Details"
     }
 
     try {
 
         const product = await ProductModel.findOne({_id : params})
 
-        console.log(product);
         
 
         res.render('productDetails', {locals, product})

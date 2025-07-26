@@ -63,11 +63,37 @@ router.get('/profile', (req,res,next)=>{
 })
 
 
+
+
+//Cart
+router.get('/cart', (req,res,next)=>{
+    res.render('cart') 
+})
+
+
+
+
+
+
+
 //Logout
   router.get('/logout', (req,res,next)=>{
     const token = req.cookies.token
     res.clearCookie('token')
     res.redirect('login')
 })  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

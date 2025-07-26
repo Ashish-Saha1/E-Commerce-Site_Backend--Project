@@ -14,6 +14,10 @@ const productSchema = mongoose.Schema({
         type : Number,
         default : 1
     },
+    color: String,
+    brand: String,
+    type : String,
+    material : String
 
 })
 

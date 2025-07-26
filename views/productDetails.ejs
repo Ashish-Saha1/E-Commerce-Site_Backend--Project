@@ -12,18 +12,18 @@
         <div class="product-details">
             <div class="vendor-product product-style">
                 <label for="">Brand :</label>
-                <span>Bata</span>
+                <span> <%= product.brand %> </span>
             </div>
 
             <div class="stock-product product-style">
                 <label for="">Availability :</label>
-                <span>In Stock</span>
+                <span><%= product.stock > 0 ? "In Stock" : "Out of Stock" %></span>
             </div>
         </div>
 
         <div class="product-price-div">
             <span>Taka</span>
-            <h3 class="product-price"> 599.00 </h3>
+            <h3 class="product-price"> <%= product.price %> </h3>
         </div>
 
         <div class="delivery-note">
@@ -52,7 +52,7 @@
 
         <div class="subtotal">
             <label>Subtotal : TK </label>
-            <span class="totalPrice">599.00</span>
+            <span class="totalPrice"> <%= product.price %> </span>
         </div>
 
 
@@ -73,10 +73,10 @@
         <div class="product-features">
             <h2>Features</h2>
             <ul>
-                <li>-Type: <span>School Shoes</span></li>
-                <li>-Material: <span>Metal</span></li>
-                <li>-Color: <span>Black</span></li>
-                <li>-Status: <span>Active</span></li>
+                <li>-Type: <span> <%= product.type %> </span></li>
+                <li>-Material: <span> <%= product.material %> </span></li>
+                <li>-Color: <span> <%= product.color %> </span></li>
+        
             </ul>
         </div>
     </div>
