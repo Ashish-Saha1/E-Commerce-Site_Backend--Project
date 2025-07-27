@@ -1,6 +1,8 @@
 const express = require('express'); 
 const router = express.Router();
-const {isLoggedIn} = require('../middlewares/isLoggedIn')
+const {isLoggedIn} = require('../middlewares/isLoggedIn');
+const UserModel = require('../models/userModel');
+const ProductModel = require('../models/productModel');
 
 const { registerController,
         loginController, 
@@ -71,7 +73,29 @@ router.get('/cart', (req,res,next)=>{
 })
 
 
+router.post('/cart/:productId',isLoggedIn, async (req,res,next)=>{
 
+    try {
+            const productId = req.params.productId;
+            const userId = req.user._id
+
+            const user = await UserModel.findOne(userId)
+             const product = await ProductModel.findById(productId);
+        // console.log(productId, userId)
+            user.cart.push(product);
+            //user.cart.push({ product: productId, quantity: 1 });
+
+            await user.save();
+            res.redirect('/users/shop')
+
+    } catch (error) {
+        console.log(error.message)
+        res.send('something wrong form cart route')
+    }
+   
+
+
+})
 
 
 

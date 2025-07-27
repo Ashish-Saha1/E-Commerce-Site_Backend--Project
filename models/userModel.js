@@ -11,6 +11,19 @@ const userSchema = mongoose.Schema({
         type : Array,
         default : []
     },
+    // cart: [
+    //     { product:{
+    //         type : mongoose.Types.ObjectId,
+    //         ref : 'ProductModel'
+    //     },
+    //     quantity: {
+    //     type: Number,
+    //     default: 1
+    //     }
+    // }
+    // ],
+
+
     orders: {
         type: Array,
         default: []
