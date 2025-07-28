@@ -3,18 +3,20 @@
     <p class="flash-msg" style="color: green;"><%= successMsg  %></p>
 <% } %>
 
+<p>Hellow <%= totalCartItem %></p>
+
 <main class="main-contant">
     <div class="row-main-products">
         <section class="cart-summary">
             <div class="summary-head">
-                <h3>Shopping Cart [2 items]</h3>
+                <h3>Shopping Cart [ <span style="color: rgb(3, 169, 175);"><%= totalCartItem %></span> items ]</h3>
             </div>
     
             <div class="summary-details">
                 <ul>
                     <li><input type="checkbox" name="" id=""> Select all items</li>
                     <li><i class="fa-solid fa-trash-can"></i></li>
-                    <li><button class="button-style">Shop More</button></li>
+                    <li><a href="/users/shop"><button class="button-style">Shop More</button></a></li>
                 </ul>
             </div>
         </section>
@@ -82,7 +84,7 @@
 
        <div>
         <p>Total Cost:</p>
-        <p>$344.38</p>
+        <p> <%= totalAmount %></p>
        </div>
        
        <button class="button-style">Pay Now</button>

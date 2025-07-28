@@ -169,7 +169,18 @@
    justify-content: center;
    gap: 30px;
    padding: 6px;
+   position: relative;
   }
+
+
+.cart-item-count{
+  position: absolute;
+  top: 12px;
+  left: 110px;
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
+}
 
   .profile-image-div{
     display: flex;
@@ -178,6 +189,8 @@
     justify-content: center;
     gap: 10px;
   }
+
+
 
   /* .profile-image{
     width: 3.2rem ;
@@ -706,6 +719,9 @@ transition: var(--trasition);
 }
 
 
+
+
+
 }
 
 
@@ -885,6 +901,8 @@ transition: var(--trasition);
   .row-main{
     width: 30rem; 
   }
+
+
 }
 
 
@@ -1393,7 +1411,12 @@ transition: var(--trasition);
 
 @media screen and (min-width:768px){
 
-
+ .cart-item-count{
+  position: absolute;
+  top: 12px;
+  left: 75px;
+ 
+}
 
 
 
@@ -1432,6 +1455,13 @@ transition: var(--trasition);
     flex-direction: row;
     flex: 1;
   }
+
+  .cart-item-count{
+  position: absolute;
+  top: 12px;
+  left: 85px;
+ 
+}
 
   .left-cart{
     flex-direction: row;
@@ -1673,3 +1703,10 @@ transition: var(--trasition);
 
 
 }
+
+
+
+
+
+
+

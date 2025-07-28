@@ -24,8 +24,9 @@
                 <% }else { %>
                     <li><a href="/users/login">Login</a></li>
                 <% } %>
-                 
-                <li><a href="/users/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                
+                <li class="shoping-cart"><a href="/users/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <span class="cart-item-count"> <%= totalCartItem %> </span>
 
                     <% if (token) { %>
                             <div class="profile-image-div">

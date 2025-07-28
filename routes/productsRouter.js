@@ -47,7 +47,7 @@ router.post("/createProduct", upload.single('avater'), async (req,res,next)=>{
             })
 
     
-            req.flash('successMsg', "Registered Successfully")
+            req.flash('successMsg', "Product Uploaded Successfully")
             res.redirect("/products/createProduct")
 
     } catch (error) {

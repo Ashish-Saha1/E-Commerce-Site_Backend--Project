@@ -83,7 +83,13 @@ router.get('/cart', isLoggedIn, async (req,res,next)=>{
         return Number(total) + Number(num.product.price)
     }, 0)
 
+    const totalCartItem = currentUser.cart.reduce((total, num)=>{
+        return Number(total) + Number(num.quantity)
+    }, 0)
+
+    console.log(totalCartItem);
     
+    // res.session.totalCartItem = totalCartItem
 
     res.render('cart', {locals, currentUser, totalAmount}) 
 
@@ -104,10 +110,14 @@ router.post('/cart/:productId',isLoggedIn, async (req,res,next)=>{
             //const product = await ProductModel.findById(productId);
                 //The first matching object from the user.cart array where the condition is true
                 //Or undefined if no match is found.
-            const hasCartItem = user.cart.find((item)=> item.product._id.toString() === productId)
+            let hasCartItem = user.cart.find((item)=> item.product._id.toString() === productId)
             
             if(hasCartItem){
                 req.flash('successMsg', "Product has already Added to Cart")
+                // console.log(hasCartItem);
+                // hasCartItem.quantity +=1
+                // console.log(hasCartItem.quantity +=1);
+                
                 return res.redirect('/users/cart')
             }
             
