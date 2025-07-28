@@ -1,3 +1,8 @@
+
+<% if (successMsg ) { %>
+    <p class="flash-msg" style="color: green;"><%= successMsg  %></p>
+<% } %>
+
 <main class="main-contant">
     <div class="row-main-products">
         <section class="cart-summary">
@@ -14,78 +19,47 @@
             </div>
         </section>
     
-       <div class="cart-products">
-        <section class="cart-product">
-            <div class="left-cart">
-                 <div>
-                     <input type="checkbox" name="" id="">
-                 </div>
-             <div class="product-img">
-                 <img src="/images/product-sunglass.jpg" alt="sunglass">
-             </div>
-            </div>
-    
-            <div class="right-cart">
-                 <div class="right-details">
-                        <h3>Raybon Sungalss</h3>
-                        <h4>Price: $225.99</h4>
+    <div class="cart-products">
+        <% userData.cart.forEach(element => { %>
+            <section class="cart-product">
+                <div class="left-cart">
+                    <div>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                <div class="product-img">
+                    <img src="/uploads/<%= element.avater %>" alt="sunglass">
+                </div>
+                </div>
+        
+                <div class="right-cart">
+                <div class="right-details">
+                        <h3><%= element.productName %></h3>
+                        <h4>Price: <%= element.price %></h4>
                         <p>Free Shipping</p>
-                 </div>
+                </div>
     
-                     <div class="count">
-                         <div class="count-trash"><i class="fa-solid fa-trash-can"></i></div>
-                         <div>
-                             <ul>
-                                 <li><i class="fa-solid fa-plus"></i></li>
-                                 <li>3</li>
-                                 <li><i class="fa-solid fa-minus"></i></li>
-                             </ul>
-                         </div>
-                     </div>
-    
+                    <div class="count">
+                        <form action="/users/remove-from-cart/<%= element._id %>" method="post">
+                            <button type="submit" class="count-trash"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                        
+                        <div>
+                            <ul>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li>3</li>
+                                <li><i class="fa-solid fa-minus"></i></li>
+                            </ul>
+                        </div>
+                    </div>
             </div>
-    
-    
-      
-     </section>
-    
-     <section class="cart-product">
-        <div class="left-cart">
-             <div>
-                 <input type="checkbox" name="" id="">
-             </div>
-         <div class="product-img">
-             <img src="/images/product-laptop.jpg" alt="laptop">
-         </div>
-        </div>
-    
-        <div class="right-cart">
-             <div class="right-details">
-                    <h3>Laptop</h3>
-                    <h4>Price: $925.99</h4>
-                    <p>Shiping Charge: $10.60</p>
-             </div>
-    
-                 <div class="count">
-                     <div class="count-trash"><i class="fa-solid fa-trash-can"></i></div>
-                     <div>
-                         <ul>
-                             <li><i class="fa-solid fa-plus"></i></li>
-                             <li>1</li>
-                             <li><i class="fa-solid fa-minus"></i></li>
-                         </ul>
-                     </div>
-                 </div>
-    
-        </div>
+        </section>
+        <% }) %>
     
     
     
-    </section>
     
-    
-       </div>
     </div>
+</div>
 
 
     <section class="payment">
@@ -93,12 +67,12 @@
         <h2>Payment Summary</h2>
        <div>
         <p>Subtotal:</p>
-        <p>$341.44</p>
+        <p><%= totalAmount %></p>
        </div>
 
        <div>
         <p>Shipping Cost:</p>
-        <p>$2.50</p>
+        <p>00</p>
        </div>
 
        <div>
