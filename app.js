@@ -7,7 +7,7 @@ const ejs = require('ejs');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const flash = require('connect-flash');
-
+const MongoStore = require("connect-mongo");
 
 
 // const config = require('config').get('')
@@ -35,6 +35,7 @@ app.use(session({
     secret: process.env.EXPRESS_SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store : MongoStore.create({mongoUrl :process.env.MONGO_URL }),
     cookie : {
         maxAge : 1000 * 60 * 60 *  120//24 * 5 hour
     }

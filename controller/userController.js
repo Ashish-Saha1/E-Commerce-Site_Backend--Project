@@ -65,8 +65,8 @@ const registerController = async (req,res)=>{
             avater : req.file ? req.file.filename : null
             })
     
-        const token= generateToken(user)
-        res.cookie('token', token)
+        // const token= generateToken(user)
+        // res.cookie('token', token)
         req.flash('successMsg', "Registered Successfully")
         res.redirect('login')
     //res.send("User is registered successfully")

@@ -20,26 +20,29 @@
         </section>
     
     <div class="cart-products">
-        <% userData.cart.forEach(element => { %>
-            <section class="cart-product">
+        
+        <% currentUser.cart.forEach(element => { %>
+
+            <% if (element.product) { %>
+                  <section class="cart-product">
                 <div class="left-cart">
                     <div>
                         <input type="checkbox" name="" id="">
                     </div>
                 <div class="product-img">
-                    <img src="/uploads/<%= element.avater %>" alt="sunglass">
+                    <img src="/uploads/<%= element.product.avater %>" alt="">
                 </div>
                 </div>
         
                 <div class="right-cart">
                 <div class="right-details">
-                        <h3><%= element.productName %></h3>
-                        <h4>Price: <%= element.price %></h4>
+                        <h3><%= element.product.productName %></h3>
+                        <h4>Price: <%= element.product.price %></h4>
                         <p>Free Shipping</p>
                 </div>
     
                     <div class="count">
-                        <form action="/users/remove-from-cart/<%= element._id %>" method="post">
+                        <form action="/users/remove-from-cart/<%= element.product._id %>" method="post">
                             <button type="submit" class="count-trash"><i class="fa-solid fa-trash-can"></i></button>
                         </form>
                         
@@ -53,6 +56,8 @@
                     </div>
             </div>
         </section>
+            <% } %>
+          
         <% }) %>
     
     
