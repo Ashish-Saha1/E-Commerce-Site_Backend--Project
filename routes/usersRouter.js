@@ -83,10 +83,10 @@ router.get('/cart', isLoggedIn, async (req,res,next)=>{
         return Number(total) + Number(num.product.price)
     }, 0)
 
-    const totalCartItem = currentUser.cart.reduce((total, num)=>{
-        return Number(total) + Number(num.quantity)
-    }, 0)
-console.log(currentUser)
+    // const totalCartItem = currentUser.cart.reduce((total, num)=>{
+    //     return Number(total) + Number(num.quantity)
+    // }, 0)
+
     res.render('cart', {locals, currentUser, totalAmount}) 
 
   } catch (error) {
@@ -157,14 +157,37 @@ router.post('/remove-from-cart/:productId', isLoggedIn, async (req, res) => {
 
 
 
-router.put('/updateCart', isLoggedIn, async(req,res,next)=>{
+router.put('/update-cart-quantity', isLoggedIn, async(req,res,next)=>{
 
-    const user = req.user;
+    const {productId, action} = req.body;
+    const userId = req.user._id
+
+    try {
+      const user = await UserModel.findById(userId);
+      const item = user.cart.find(i => i.product.toString() === productId);
+
+      if (!item) return res.status(404).json({ message: 'Item not found in cart' });
+
+      if(action === 'dec' && item.quantity <= 1){
+        return res.status(404).json({ message: 'Minimum quanty is 1' });
+      }
+
+      const update = {
+        $inc: {"cart.$.quanty": action = 'inc' ? 1 : -1}
+      }
+
+      await UserModel.updateOne(
+        {_id : userId, 'cart.product': productId}, update
+      )
+      
+      res.json({ message: 'Quantity updated' });
+    } catch (error) {
+      console.log(error.message);
+      res.send('something wrong in Update cart count')
+    }
 
 
-    console.log('ehhh')
 
-  res.render('pro')
 
 
 })

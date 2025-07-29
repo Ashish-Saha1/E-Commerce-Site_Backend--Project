@@ -46,13 +46,19 @@
                             <button type="submit" class="count-trash"><i class="fa-solid fa-trash-can"></i></button>
                         </form>
                         
-                        <div>
-                            <ul>
+                <div>
+                            <!-- <ul>
                                 <li><i class="fa-solid fa-plus"></i></li>
                                 <li>3</li>
                                 <li><i class="fa-solid fa-minus"></i></li>
-                            </ul>
-                        </div>
+                            </ul> -->
+
+                    <button class="qty-btn" data-id="<%= element.product._id %>" data-action="dec">-</button>
+                    <span class="qty-span" id="qty-<%= element.product._id %>"><%= element.quantity %></span>
+                    <button class="qty-btn" data-id="<%= element.product._id %>" data-action="inc">+</button>
+
+                </div>
+
                     </div>
             </div>
         </section>

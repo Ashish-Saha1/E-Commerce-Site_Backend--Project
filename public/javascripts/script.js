@@ -112,12 +112,39 @@ let manuBar = document.querySelector('.hide-manu');
 
 
 
-    // const productPrice = document.querySelector('.product-price');
-    // const productQty = document.querySelector('.inputQty');
-    // const totalPrice = document.querySelector('.totalPrice');
+// --------------------Update cart count -----------------------
 
-    // console.log(productPrice.textContent, productQty.value, totalPrice.textContent);
-    
-    //  totalPrice.innerHTML = Number(productPrice.textContent) * Number(productQty.value);
-    // console.log(totalPrice.innerHTML );
-    
+document.querySelectorAll('.qty-btn').forEach(button => {
+  button.addEventListener('click', async () => {
+    const productId = button.dataset.id;
+    const action = button.dataset.action;
+
+    const qtySpan = document.getElementById(`qty-${productId}`);
+    let currentQty = parseInt(qtySpan.textContent);
+
+    // Prevent decrementing below 1
+    if (action === 'dec' && currentQty <= 1) return;
+
+    try {
+      const res = await fetch('/cart/update-cart-quantity', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ productId, action })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        // Update the visible quantity instantly
+        qtySpan.textContent = action === 'inc' ? currentQty + 1 : currentQty - 1;
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Failed to update quantity');
+    }
+  });
+});

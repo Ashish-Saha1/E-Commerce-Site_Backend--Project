@@ -1314,6 +1314,23 @@ transition: var(--trasition);
     padding: 10px;
  }
 
+/* New + - buttons style later implemented */
+.count >div{
+  display: flex;
+}
+
+.qty-btn{
+  background-color: whitesmoke;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.qty-span{
+  padding: 8px 12px;
+  border: 2px solid black;
+  margin: 0 5px;
+}
+
  .count-trash i{
     background-color: whitesmoke;
     padding: 10px;
