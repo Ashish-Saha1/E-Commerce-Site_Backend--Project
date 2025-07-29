@@ -18,6 +18,7 @@ const PORT = process.env.PORT;
 const usersRouter = require('./routes/usersRouter');
 const ownersRouter = require('./routes/ownersRouters');
 const productsRouter = require('./routes/productsRouter');
+const totalCartItem = require('./utils/totalCartItem');
 
 
 //Database connect
@@ -57,9 +58,11 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
     res.locals.userData = req.session.userData || null;
     res.locals.token = req.cookies.token;
-    res.locals.totalCartItem = req.session.totalCartItem || null
+    
     next();
 });
+
+app.use(totalCartItem)
 
 //Layouts
 app.set('view engine', 'ejs');

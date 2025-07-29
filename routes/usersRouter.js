@@ -83,13 +83,9 @@ router.get('/cart', isLoggedIn, async (req,res,next)=>{
         return Number(total) + Number(num.product.price)
     }, 0)
 
-    const totalCartItem = currentUser.cart.reduce((total, num)=>{
-        return Number(total) + Number(num.quantity)
-    }, 0)
-
-    console.log(totalCartItem);
-    
-    // res.session.totalCartItem = totalCartItem
+    // const totalCartItem = currentUser.cart.reduce((total, num)=>{
+    //     return Number(total) + Number(num.quantity)
+    // }, 0)
 
     res.render('cart', {locals, currentUser, totalAmount}) 
 
