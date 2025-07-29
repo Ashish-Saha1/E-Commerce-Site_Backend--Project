@@ -1,22 +1,42 @@
 const UserModel = require('../models/userModel');
-
+const jwt = require('jsonwebtoken')
 
 const totalCartItem = async (req, res, next) => {
-  try {
+
+    const token = req.cookies.token;
+   
+      if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET); // your secret
+      req.user = decoded; // attach the user payload to request
+
     if (req.user) {
-      const user = await UserModel.findById(req.user._id);
-      console.log('cartCount:' ,user)
-      res.locals.totalCartItem = user.cart.reduce((sum, item) => sum + item.quantity, 0);
-    } else {
+        const user = await UserModel.findById({_id: req.user.id});
+        res.locals.totalCartItem = user.cart.reduce((total, item) => {
+            return Number(total) + Number(item.quantity);
+        }, 0);
+        }
+
+       
+
+    } catch (err) {
+      console.error('Invalid token:', err.message);
       res.locals.totalCartItem = 0;
+      req.user = null;
     }
-    next();
-  } catch (error) {
-    console.error('Cart Count Middleware Error:', error.message);
+  } else {
     res.locals.totalCartItem = 0;
-    next(); // Still continue even if something fails
+    req.user = null;
   }
+  next();
 };
+
+
+
+
+
+  
+
 
 module.exports = totalCartItem;
 

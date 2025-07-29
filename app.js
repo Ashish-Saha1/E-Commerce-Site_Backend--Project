@@ -18,7 +18,7 @@ const PORT = process.env.PORT;
 const usersRouter = require('./routes/usersRouter');
 const ownersRouter = require('./routes/ownersRouters');
 const productsRouter = require('./routes/productsRouter');
-const totalCartItem = require('./utils/totalCartItem');
+const totalCartItem = require('./utils/totalCartItem')
 
 
 //Database connect
@@ -63,6 +63,7 @@ app.use((req, res, next) => {
 });
 
 app.use(totalCartItem)
+
 
 //Layouts
 app.set('view engine', 'ejs');

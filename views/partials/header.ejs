@@ -26,7 +26,7 @@
                 <% } %>
                 
                 <li class="shoping-cart"><a href="/users/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <span class="cart-item-count"> <%= totalCartItem %> </span>
+                <span class="cart-item-count"> <%= totalCartItem > 0 ? totalCartItem : ""  %> </span>
 
                     <% if (token) { %>
                             <div class="profile-image-div">
