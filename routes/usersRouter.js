@@ -173,7 +173,7 @@ router.put('/update-cart-quantity', isLoggedIn, async(req,res,next)=>{
       }
 
       const update = {
-        $inc: {"cart.$.quanty": action = 'inc' ? 1 : -1}
+        $inc: {"cart.$.quantity": action === 'inc' ? 1 : -1}
       }
 
       await UserModel.updateOne(

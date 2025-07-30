@@ -126,7 +126,7 @@ document.querySelectorAll('.qty-btn').forEach(button => {
     if (action === 'dec' && currentQty <= 1) return;
 
     try {
-      const res = await fetch('/cart/update-cart-quantity', {
+      const res = await fetch('/users/update-cart-quantity', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -139,6 +139,7 @@ document.querySelectorAll('.qty-btn').forEach(button => {
       if (res.ok) {
         // Update the visible quantity instantly
         qtySpan.textContent = action === 'inc' ? currentQty + 1 : currentQty - 1;
+      
       } else {
         alert(data.message);
       }
