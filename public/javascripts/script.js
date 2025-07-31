@@ -49,7 +49,7 @@ let manuBar = document.querySelector('.hide-manu');
 
 
 
-   //Increse or decrease input Quantity & calculate total amount as well
+   //Increse or decrease input Quantity & calculate total amount as well in product details page
 
     const plus = document.querySelector('.plus');
     const minus = document.querySelector('.minus');
@@ -107,7 +107,7 @@ let manuBar = document.querySelector('.hide-manu');
         totalCountCalculate()
       })
     }
-  
+     // Ends Here Increse or decrease input Quantity & calculate total amount as well in product details page
 
 
 

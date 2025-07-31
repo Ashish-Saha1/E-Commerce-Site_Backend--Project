@@ -1,8 +1,10 @@
 const express = require('express'); 
 const router = express.Router();
+const mongoose = require('mongoose');
 const {isLoggedIn} = require('../middlewares/isLoggedIn');
 const UserModel = require('../models/userModel');
 const ProductModel = require('../models/productModel');
+
 
 const { registerController,
         loginController, 
@@ -96,6 +98,8 @@ router.get('/cart', isLoggedIn, async (req,res,next)=>{
 })
 
 
+// Product is add to cart by push in mongo server
+
 router.post('/cart/:productId',isLoggedIn, async (req,res,next)=>{
 
     try {
@@ -128,7 +132,7 @@ router.post('/cart/:productId',isLoggedIn, async (req,res,next)=>{
 })
 
 
-const mongoose = require('mongoose');
+
 
 router.post('/remove-from-cart/:productId', isLoggedIn, async (req, res) => {
   try {
