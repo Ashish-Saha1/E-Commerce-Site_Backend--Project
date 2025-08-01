@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const {isLoggedIn} = require('../middlewares/isLoggedIn');
 const UserModel = require('../models/userModel');
 const ProductModel = require('../models/productModel');
+const { cartItemCount, totalCartAmount } = require('../utils/cartItemCount');
 
 
 const { registerController,
@@ -81,13 +82,10 @@ router.get('/cart', isLoggedIn, async (req,res,next)=>{
       const currentUser = await UserModel.findById(userId)
                         .populate('cart.product')
 
+
     const totalAmount = currentUser.cart.reduce((total, num)=>{
         return Number(total) + Number(num.product.price)
     }, 0)
-
-    // const totalCartItem = currentUser.cart.reduce((total, num)=>{
-    //     return Number(total) + Number(num.quantity)
-    // }, 0)
 
     res.render('cart', {locals, currentUser, totalAmount}) 
 
@@ -160,8 +158,9 @@ router.post('/remove-from-cart/:productId', isLoggedIn, async (req, res) => {
 });
 
 
-
-router.put('/update-cart-quantity', isLoggedIn, async(req,res,next)=>{
+    //Cart QTY update by clicking + or - buton in cart items this is a api link with 
+    // frontend script.js part
+router.put('/update-cart-quantity-api', isLoggedIn, async(req,res,next)=>{
 
     const {productId, action} = req.body;
     const userId = req.user._id
@@ -190,13 +189,44 @@ router.put('/update-cart-quantity', isLoggedIn, async(req,res,next)=>{
       res.send('something wrong in Update cart count')
     }
 
-
-
-
-
 })
 
 
+
+//Create an API for frontend to count cart item as per button click + or -
+
+router.get('/cart-count-api', isLoggedIn, async(req,res,next)=>{
+    const userId = req.user._id;
+
+    try {
+      const count = await cartItemCount(userId)
+      res.json({total : count})
+    } catch (error) {
+      console.log(`Error From cart-count-api:`, error.message);
+      res.status(401).json({total : 0})
+      
+    }
+})
+
+
+//Create an API for frontend to count total cart item amount as per button click + or -
+
+router.get('/cart-amount-total-api', isLoggedIn, async(req,res,next)=>{
+    const userId = req.user._id;
+    
+    try {
+      const cartSum= await totalCartAmount(userId)
+      const count = await cartItemCount(userId)
+      const cartAmount = cartSum * count;
+      
+      
+      res.json({totalAmount : cartAmount})
+    } catch (error) {
+      console.log(`Error From cart-count-api:`, error.message);
+      res.status(401).json({totalAmount : 0})
+      
+    }
+})
 
 
 

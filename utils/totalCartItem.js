@@ -4,8 +4,7 @@ const { cartItemCount } = require('./cartItemCount')
 
 const totalCartItem = async (req, res, next) => {
 
-    const token = req.cookies.token;
-      
+    const token = req.cookies.token; 
     try {
       if (token) {
           const decoded = jwt.verify(token, process.env.JWT_SECRET); // your secret
@@ -13,15 +12,11 @@ const totalCartItem = async (req, res, next) => {
 
       if (req.user) {
           res.locals.totalCartItem = await cartItemCount(req.user.id)
-          // const user = await UserModel.findById({_id: req.user.id});
-    
-          //  = user.cart.reduce((total, item) => {
-          //     return Number(total) + Number(item.quantity);
-          // }, 0);
           }else{
             res.locals.totalCartItem = 0;
           }
-      }else{
+
+    }else{
         res.locals.totalCartItem = 0;
       }
   } catch (err) {

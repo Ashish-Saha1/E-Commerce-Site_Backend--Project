@@ -7,7 +7,7 @@
     <div class="row-main-products">
         <section class="cart-summary">
             <div class="summary-head">
-                <h3>Shopping Cart [ <span style="color: rgb(3, 169, 175);"><%= totalCartItem %></span> items ]</h3>
+                <h3>Shopping Cart [ <span class="cart-summary-span" style="color: rgb(3, 169, 175);"><%= totalCartItem %></span> items ]</h3>
             </div>
     
             <div class="summary-details">
@@ -78,17 +78,17 @@
         <h2>Payment Summary</h2>
        <div>
         <p>Subtotal:</p>
-        <p><%= totalAmount %></p>
+        <p class="subtotal"><%= totalAmount %></p>
        </div>
 
        <div>
         <p>Shipping Cost:</p>
-        <p>00</p>
+        <p class="shipping-cost">00</p>
        </div>
 
        <div>
         <p>Total Cost:</p>
-        <p> <%= totalAmount %></p>
+        <p class="total-cost"> <%= totalAmount %></p>
        </div>
        
        <button class="button-style">Pay Now</button>

@@ -126,7 +126,7 @@ document.querySelectorAll('.qty-btn').forEach(button => {
     if (action === 'dec' && currentQty <= 1) return;
 
     try {
-      const res = await fetch('/users/update-cart-quantity', {
+      const res = await fetch('/users/update-cart-quantity-api', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -139,6 +139,41 @@ document.querySelectorAll('.qty-btn').forEach(button => {
       if (res.ok) {
         // Update the visible quantity instantly
         qtySpan.textContent = action === 'inc' ? currentQty + 1 : currentQty - 1;
+
+
+        //Here implement another fetch for update cart count in cart haeder & total cart item
+      const countRes = await fetch('/users/cart-count-api');
+      const countData = await countRes.json();
+
+        //Update this countData to DOM
+        const cartIcon = document.querySelector('.cart-item-count');
+        const cartSummary = document.querySelector('.cart-summary-span');
+              if(cartIcon && cartSummary){
+                cartIcon.innerText = countData.total;
+                cartSummary.innerText = countData.total;
+              }else{
+                alert("CartIcon is wrong from script.js")
+              }
+
+
+      
+       //Here implement another fetch for update cart count in cart haeder & total cart item
+      const amountRes = await fetch('/users/cart-amount-total-api');
+      const totalAmountRes = await amountRes.json();
+                  console.log(totalAmountRes);
+                  
+        //Update this TotalCartAmount to DOM
+            const subtotal = document.querySelector(".subtotal");
+            const totalCost = document.querySelector(".total-cost");
+                  if(subtotal && totalCost){
+                      subtotal.innerText = totalAmountRes.totalAmount;
+                      totalCost.innerText = totalAmountRes.totalAmount;
+                    }else{
+                      alert("CartIcon is wrong from script.js")
+                    }
+            
+
+
       
       } else {
         alert(data.message);
