@@ -83,11 +83,12 @@ router.get('/cart', isLoggedIn, async (req,res,next)=>{
                         .populate('cart.product')
 
 
-    const totalAmount = currentUser.cart.reduce((total, num)=>{
-        return Number(total) + Number(num.product.price)
-    }, 0)
+    // const totalAmount = currentUser.cart.reduce((total, num)=>{
+    //     return Number(total) + Number(num.product.price)
+    // }, 0)
 
-    res.render('cart', {locals, currentUser, totalAmount}) 
+   
+    res.render('cart', {locals, currentUser}) 
 
   } catch (error) {
     console.log(error.message)
@@ -215,9 +216,9 @@ router.get('/cart-amount-total-api', isLoggedIn, async(req,res,next)=>{
     const userId = req.user._id;
     
     try {
-      const cartSum= await totalCartAmount(userId)
-      const count = await cartItemCount(userId)
-      const cartAmount = cartSum * count;
+      const cartAmount= await totalCartAmount(userId)
+      // const count = await cartItemCount(userId)
+      // const cartAmount = cartSum * count;
       
       
       res.json({totalAmount : cartAmount})

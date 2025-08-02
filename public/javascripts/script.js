@@ -114,6 +114,29 @@ let manuBar = document.querySelector('.hide-manu');
 
 // --------------------Update cart count -----------------------
 
+
+    //Here is a reuse function for total cart amount calculation
+async function updateCartTotalAmount() {
+  try {
+    const amountRes = await fetch('/users/cart-amount-total-api');
+    const totalAmountRes = await amountRes.json();
+
+    const subtotal = document.querySelector(".subtotal");
+    const totalCost = document.querySelector(".total-cost");
+
+    if (subtotal && totalCost) {
+      subtotal.innerText = totalAmountRes.totalAmount;
+      totalCost.innerText = totalAmountRes.totalAmount;
+    }
+  } catch (err) {
+    console.error("Error updating cart total amount:", err);
+  }
+}
+
+
+
+
+    //this is for click button which is fetch backend api
 document.querySelectorAll('.qty-btn').forEach(button => {
   button.addEventListener('click', async () => {
     const productId = button.dataset.id;
@@ -156,22 +179,9 @@ document.querySelectorAll('.qty-btn').forEach(button => {
               }
 
 
-      
-       //Here implement another fetch for update cart count in cart haeder & total cart item
-      const amountRes = await fetch('/users/cart-amount-total-api');
-      const totalAmountRes = await amountRes.json();
-                  console.log(totalAmountRes);
-                  
-        //Update this TotalCartAmount to DOM
-            const subtotal = document.querySelector(".subtotal");
-            const totalCost = document.querySelector(".total-cost");
-                  if(subtotal && totalCost){
-                      subtotal.innerText = totalAmountRes.totalAmount;
-                      totalCost.innerText = totalAmountRes.totalAmount;
-                    }else{
-                      alert("CartIcon is wrong from script.js")
-                    }
-            
+    
+  //Here implement another fetch for update cart amount in total cart item sum
+      updateCartTotalAmount()
 
 
       
@@ -184,3 +194,9 @@ document.querySelectorAll('.qty-btn').forEach(button => {
     }
   });
 });
+
+
+
+// This event listener is for total amount stable if reload page total amonut is stable 
+document.addEventListener('DOMContentLoaded', updateCartTotalAmount);
+

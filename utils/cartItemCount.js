@@ -22,15 +22,13 @@ const totalCartAmount = async (userId)=>{
 
     if(!user || !user.cart) return 0;
 
+    let result = 0;
 
+    user.cart.forEach(element => {
+        result += element.product.price * element.quantity
+    });
 
-        return user.cart.reduce((total, item) => {
-            return Number(total) + Number(item.product.price);
-            }, 0);
-
-    
-
-   
+    return result;
 
 }
 
