@@ -159,6 +159,37 @@ router.post('/remove-from-cart/:productId', isLoggedIn, async (req, res) => {
 });
 
 
+//clear all products from cart item its manage form backend 
+  // router.post('/remove-from-cart-all', isLoggedIn, async(req,res,next)=>{
+  //     const userId = req.user._id;
+
+  //     try {
+  //       const deleteAll = await UserModel.findByIdAndUpdate(userId, {$set:{cart : []}}, {new : true})
+  //       req.flash('successMsg', "All Product has been Deleted")
+  //       res.redirect('/users/cart');
+  //     } catch (error) {
+  //       console.log(error.message);
+  //       res.send('Someting is problem from remove all route')
+  //     }
+  // })
+
+// same as above but manage by frontend using fetch
+ router.post('/remove-from-cart-all', isLoggedIn, async(req,res,next)=>{
+      const userId = req.user._id;
+
+      try {
+        const deleteAll = await UserModel.findByIdAndUpdate(userId, {$set:{cart : []}}, {new : true})
+        req.flash('successMsg', "All Product has been Deleted")
+        res.json({Mess: "Successfully deleted all products"})
+        // res.redirect('/users/cart');
+      } catch (error) {
+        console.log(error.message);
+        res.send('Someting is problem from remove all route')
+      }
+  })
+
+
+
     //Cart QTY update by clicking + or - buton in cart items this is a api link with 
     // frontend script.js part
 router.put('/update-cart-quantity-api', isLoggedIn, async(req,res,next)=>{

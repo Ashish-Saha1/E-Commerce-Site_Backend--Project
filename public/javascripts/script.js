@@ -1,5 +1,7 @@
 // Nav bar starts
 
+//const { application } = require("express");
+
 let manuIcon = document.querySelector('.manu-icon');
 let manuBar = document.querySelector('.hide-manu');
 
@@ -199,4 +201,32 @@ document.querySelectorAll('.qty-btn').forEach(button => {
 
 // This event listener is for total amount stable if reload page total amonut is stable 
 document.addEventListener('DOMContentLoaded', updateCartTotalAmount);
+
+
+
+
+//Delete all products from cart
+
+const deleteAllBtn = document.querySelector('.deleteAll-btn');
+
+deleteAllBtn.addEventListener('click', async () => {
+  try {
+    const res = await fetch('/users/remove-from-cart-all', {
+      method: 'POST', // ✅ correct method
+      headers: {
+        'Content-Type': 'application/json' // optional, since you're not sending a body
+      }
+    });
+
+    const data = await res.json();
+    console.log(data.Mess); // should show: Successfully deleted all products
+
+    // Optional: reload cart page or update UI
+    // window.location.reload();
+  } catch (error) {
+    console.error('Error:', error);
+  }
+});
+
+
 
