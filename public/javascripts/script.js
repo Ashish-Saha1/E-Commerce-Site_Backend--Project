@@ -209,7 +209,8 @@ document.addEventListener('DOMContentLoaded', updateCartTotalAmount);
 
 const deleteAllBtn = document.querySelector('.deleteAll-btn');
 
-deleteAllBtn.addEventListener('click', async () => {
+if(deleteAllBtn){
+  deleteAllBtn.addEventListener('click', async () => {
   try {
     const res = await fetch('/users/remove-from-cart-all', {
       method: 'POST', // ✅ correct method
@@ -221,12 +222,21 @@ deleteAllBtn.addEventListener('click', async () => {
     const data = await res.json();
     console.log(data.Mess); // should show: Successfully deleted all products
 
+    if (data.Mess === 'Successfully deleted all products') {
+  window.location.reload(); // ✅ page fetches updated cart = empty
+}
     // Optional: reload cart page or update UI
     // window.location.reload();
+
+
+
+
+
   } catch (error) {
     console.error('Error:', error);
   }
 });
+}
 
 
 
