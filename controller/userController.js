@@ -28,6 +28,14 @@ const registerController = async (req,res)=>{
     const {firstName, lastName, email, password,confirmPassword, avater} = req.body;
 
     try {
+        //Check if file was uploaded if not try to use a default photo
+        let photoName;
+        if(req.file){
+            photoName = req.file.filename
+        }else{
+            photoName = 'default.jpg'
+        }
+
         if(!firstName || !lastName || !email || !password || !confirmPassword){
             req.flash('errorMsg', "Required Field")
             if(req.file){             
@@ -62,7 +70,7 @@ const registerController = async (req,res)=>{
             lastName,
             email,
             password: hashPassword,
-            avater : req.file ? req.file.filename : null
+            avater : req.file ? req.file.filename : photoName
             })
     
         // const token= generateToken(user)

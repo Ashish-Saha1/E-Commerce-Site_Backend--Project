@@ -228,15 +228,24 @@ if(deleteAllBtn){
     // Optional: reload cart page or update UI
     // window.location.reload();
 
-
-
-
-
   } catch (error) {
     console.error('Error:', error);
   }
 });
 }
+
+
+
+//Select all checkbox to check one parant checkbox
+
+const selectAllCheckbox = document.getElementById('select-all');
+const cartItemCheckbox = document.querySelectorAll('.cart-item');
+
+cartItemCheckbox.forEach(item=>{
+  item.addEventListener()
+  
+  
+})
 
 
 
