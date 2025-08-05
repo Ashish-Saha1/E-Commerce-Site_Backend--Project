@@ -238,14 +238,38 @@ if(deleteAllBtn){
 
 //Select all checkbox to check one parant checkbox
 
-const selectAllCheckbox = document.getElementById('select-all');
+let selectAllCheckbox = document.getElementById('select-all');
 const cartItemCheckbox = document.querySelectorAll('.cart-item');
+const deleteAllIcon = document.querySelector('.deleteAll-icon')
 
-cartItemCheckbox.forEach(item=>{
-  item.addEventListener()
-  
-  
+selectAllCheckbox.addEventListener('change', function(){
+    cartItemCheckbox.forEach(item=>{
+      if(selectAllCheckbox.checked){
+        item.checked = true
+        deleteAllIcon.hidden = false
+      }else{
+        item.checked = false
+        deleteAllIcon.hidden = true
+      }
+        
+      //item.checked = selectAllCheckbox.checked
+      })
 })
 
+
+cartItemCheckbox.forEach((item)=>{
+  item.addEventListener('change', function(){
+      if(!item.checked){
+        selectAllCheckbox.checked = false
+        deleteAllIcon.hidden = true
+      }else{
+        const allChecked = Array.from(cartItemCheckbox).every(cb => cb.checked);
+        selectAllCheckbox.checked = allChecked;
+        deleteAllIcon.hidden = !allChecked
+
+      }
+  })
+  
+})
 
 
