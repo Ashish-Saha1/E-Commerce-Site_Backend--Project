@@ -83,11 +83,6 @@ router.get('/cart', isLoggedIn, async (req,res,next)=>{
                         .populate('cart.product')
 
 
-    // const totalAmount = currentUser.cart.reduce((total, num)=>{
-    //     return Number(total) + Number(num.product.price)
-    // }, 0)
-
-   
     res.render('cart', {locals, currentUser}) 
 
   } catch (error) {

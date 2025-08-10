@@ -1331,11 +1331,16 @@ transition: var(--trasition);
   margin: 0 5px;
 }
 
+
  .count-trash i{
     background-color: whitesmoke;
     padding: 10px;
-    margin-top: 15px;
+    margin-top: 0px;
     cursor: pointer;
+ }
+
+ .count-trash i:hover{
+  background-color: rgb(248, 217, 217);
  }
   .count ul{
     display: flex;
