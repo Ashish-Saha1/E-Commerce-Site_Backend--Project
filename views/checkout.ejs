@@ -1,0 +1,42 @@
+
+<div class="checkout">
+            <h1>Checkout</h1>
+
+            <table>
+
+                <tr>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+
+                <% userCheckout.cart.forEach(element => { %>
+                    <tr>
+                        <td><%= element.product.productName %></td>
+                        <td><%= element.quantity %></td>
+                        <td><%= element.product.price %></td>
+                        <td><%= element.product.price * element.quantity %></td>
+                    </tr>
+                <% }) %>
+                
+            </table>
+
+            <div class="total-section">
+                Grand Total: ₹6700
+            </div>
+
+            <div class="payment-method">
+                <h3>Choose Payment Method</h3>
+                <form>
+                    <label>
+                        <input type="radio" name="paymentMethod" value="COD" checked> Cash on Delivery
+                    </label><br><br>
+                    <label>
+                        <input type="radio" name="paymentMethod" value="Online"> Online Payment
+                    </label>
+                </form>
+            </div>
+
+            <button class="pay-btn">Pay Now</button>
+</div>

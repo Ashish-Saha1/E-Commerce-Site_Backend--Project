@@ -257,6 +257,26 @@ router.get('/cart-amount-total-api', isLoggedIn, async(req,res,next)=>{
 
 
 
+//Checkout page Get method
+
+router.get('/checkout', isLoggedIn, async(req,res,next)=>{
+
+    const userId = req.user._id
+      try {
+
+        const userCheckout = await UserModel.findById(userId)
+                      .populate('cart.product')
+        
+
+        res.render('checkout', {userCheckout})
+      } catch (error) {
+        console.log(error.message)
+        res.send(`Something wrong from checkout page`)
+      }
+    
+})
+
+
 
 //Logout
   router.get('/logout', (req,res,next)=>{

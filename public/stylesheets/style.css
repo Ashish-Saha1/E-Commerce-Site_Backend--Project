@@ -1728,7 +1728,66 @@ transition: var(--trasition);
 
 
 
+/* --------------------Checkout Page------------------- */
 
 
-
-
+.checkout {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table th, table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            background: #007bff;
+            color: white;
+        }
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .total-section {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-top: 2px solid #007bff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .payment-method {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .pay-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pay-btn:hover {
+            background: #218838;
+        }
