@@ -267,8 +267,11 @@ router.get('/checkout', isLoggedIn, async(req,res,next)=>{
         const userCheckout = await UserModel.findById(userId)
                       .populate('cart.product')
         
-
-        res.render('checkout', {userCheckout})
+              //To calculate total checkout grand total amount
+        const checkOutAmount= await totalCartAmount(userId)
+        
+        res.render('checkout', {userCheckout, checkOutAmount})
+        
       } catch (error) {
         console.log(error.message)
         res.send(`Something wrong from checkout page`)

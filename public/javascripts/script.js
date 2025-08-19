@@ -213,7 +213,7 @@ if(deleteAllBtn){
   deleteAllBtn.addEventListener('click', async () => {
   try {
     const res = await fetch('/users/remove-from-cart-all', {
-      method: 'POST', // ✅ correct method
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json' // optional, since you're not sending a body
       }
